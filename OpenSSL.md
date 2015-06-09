@@ -155,7 +155,7 @@ there is also description of the configuration options.
 
 - __Update `dir`__ in the `[ca_default]` section to correct value.
 
-- Maybe you would like to update `default_crl_days` in `[ca_default]`.
+- Maybe you would like to update `default_days` in `[ca_default]`.
 
 - I also recommend to set `countryName_default` and other defaults to your
   preferred values.
@@ -281,7 +281,7 @@ Create certificate:
       -in intermediate/csr/$name.csr.pem \
       -out intermediate/certs/$name.cert.pem
 
-    chmod 444 intermediate/certs/www.example.com.cert.pem
+    chmod 444 intermediate/certs/$name.cert.pem
 
 Verify the certificate:
 
