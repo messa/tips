@@ -1,4 +1,9 @@
 
+http://docs.mongodb.org/manual/tutorial/deploy-replica-set-with-auth/
+
+http://docs.mongodb.org/manual/reference/configuration-options/
+
+
 MongoDB
 =======
 
@@ -63,10 +68,10 @@ to the sharded cluster or a replica set, must have the following properties:
     - the Organizational Unit (`OU`) or
     - the Domain Component (`DC`).
 
-- `O`, `OU` and `DC` must _match_ those from the certificates for the other cluster members
+- `O`, `OU` and `DC` must __match__ those from the certificates for the other cluster members
 
 - Either the Common Name (`CN`) or one of the Subject Alternative Name (`SAN`) entries
-  must match the hostname of the server, used by the other members of the cluster.
+  must __match__ the hostname of the server, used by the other members of the cluster.
 
 For example, the certificates for a cluster could have the following subjects:
 
@@ -96,13 +101,14 @@ The client certificate must have the following properties:
         extendedKeyUsage = clientAuth
 
 - Each unique MongoDB user must have a unique certificate.
-- A client x.509 certificate’s subject, which contains the Distinguished Name (DN), must _differ_ from that of a Member x.509 Certificate, with regards to at least one of the following attributes:
+- A client x.509 certificate’s subject, which contains the Distinguished Name (DN), must __differ__ from that of a Member x.509 Certificate, with regards to at least one of the following attributes:
 
     - Organization (`O`),
     - the Organizational Unit (`OU`) or
     - the Domain Component (`DC`).
 
     If a client x.509 certificate’s subject has the same O, OU, and DC combination as the Member x.509 Certificate, the client will be identified as a cluster member and _granted full permission_ on the system.
+
 
 ### SSL CA setup
 
