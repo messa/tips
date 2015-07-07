@@ -84,6 +84,8 @@ __Run kvm:__
         -net nic,macaddr=de:ad:be:ef:11:22 \
         -net tap,ifname=tap0,script=no,downscript=no
 
+If you run multiple kvm instances at once, be sure to assign a different macaddr to each one.
+
 
 Links
 -----
