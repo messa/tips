@@ -112,7 +112,10 @@ The client certificate must have the following properties:
 
 ### SSL CA setup
 
+TBD (maybe).
 
+Have a look at [my OpenSSL tips](https://github.com/messa/tips/blob/master/OpenSSL.md) how to
+create your own private CA, generate keys and sign certificates.
 
 
 ### Configuration
@@ -205,6 +208,10 @@ We need to create admin user.
         "roles" : ...
     }
 
+
+### Add another member to replica set
+
+    rs.add('node2.example.com:27017')
 
 
 Links

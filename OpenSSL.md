@@ -56,7 +56,7 @@ __Prepare directory:__
     touch root-ca/index.txt
     echo 1000 > root-ca/serial
 
-__Create configuration file__ `root-ca/openssl.conf` from [sample openssl.conf](https://gist.github.com/messa/82cf72cdd51e894c890c).
+__Create configuration file__ `root-ca/openssl.conf` from [__sample openssl.conf__](https://gist.github.com/messa/82cf72cdd51e894c890c).
 See [jamielinux.com](https://jamielinux.com/docs/openssl-certificate-authority/create-the-root-pair.html)
 for configuration options description.
 
