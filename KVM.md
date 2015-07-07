@@ -73,12 +73,16 @@ __Add `tap0`:__
     sudo brctl addif br0 tap0
 
 _Alternative:_
-`tap0` can also be included in `/etc/network/interfaces`, see
+instead of adding `ta0` to `br0` manually,
+it can be included in `/etc/network/interfaces` too.
+See
 [Debian QEMU wiki](https://wiki.debian.org/QEMU#Host_and_guests_on_same_network).
 
 __Run kvm:__
 
-    kvm ... -net nic -net tap,ifname=tap0,script=no,downscript=no
+    kvm  -file ...etc. \
+        -net nic,macaddr=de:ad:be:ef:11:22 \
+        -net tap,ifname=tap0,script=no,downscript=no
 
 
 Links
