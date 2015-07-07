@@ -4,6 +4,9 @@ Salt
 
 [SaltStack.com](http://saltstack.com/community/)
 
+This text focuses on version 2015.5.2.
+
+
 Installation
 ------------
 
@@ -48,6 +51,27 @@ More examples of execution modules:
     # salt '*' pkg.install vim
     # salt '*' network.interfaces
     # salt '*' sys.doc
+    # salt '*' sys.list_modules
+    # salt '*' sys.list_functions
+    # salt '*' sys.list_runner_functions
+    # salt '*' sys.list_state_functions
+    # salt '*' pillar.items
+
+Salt states, modules... what is what?
+
+- __State modules__  are the components that map to actual enforcement and management
+  of Salt states.
+  Like `pkg` in the example `basic_pkg.sls` below.
+
+- __Execution modules__ are the functions called by the salt command
+ (like `disk.usage` above).
+ Cannot be called directly within state files.
+ You must use the `module` state module to call execution modules within state runs.
+
+- __Runners__ are convenience applications executed with the salt-run command.
+  Salt runners work similarly to Salt execution modules however they execute on
+  the Salt master itself instead of remote Salt minions.)
+
 
 States
 ------
@@ -88,8 +112,10 @@ More about this in
 Links
 -----
 
-- http://docs.saltstack.com/en/latest/
-- http://docs.saltstack.com/en/latest/topics/tutorials/walkthrough.html
+- [Salt docs](http://docs.saltstack.com/en/latest/)
+- [Salt Walkthrough](http://docs.saltstack.com/en/latest/topics/tutorials/walkthrough.html)
+- [Full list of builtin execution modules](http://docs.saltstack.com/en/latest/ref/modules/all/index.html)
+- [Best Practices](https://docs.saltstack.com/en/latest/topics/best_practices.html)
 
 Czech articles about Salt:
 
