@@ -109,6 +109,16 @@ More environments can be defined, for example `dev`, `qa`, or `prod`.
 More about this in
 [the top file documentation](http://docs.saltstack.com/en/latest/ref/states/top.html).
 
+
+Formulas
+--------
+
+Formulas are pre-written Salt States.
+All official Salt Formulas can be found at
+[github.com/saltstack-formulas](https://github.com/saltstack-formulas).
+You can download them to your Salt state tree or use them as GitFS remote.
+[Docs](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html)
+
 Links
 -----
 
