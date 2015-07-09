@@ -119,6 +119,53 @@ All official Salt Formulas can be found at
 You can download them to your Salt state tree or use them as GitFS remote.
 [Docs](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html)
 
+
+Less verbose output
+-------------------
+
+Modify file `/etc/salt/master`:
+
+    state_output: terse
+
+Restart:
+
+    # /etc/init.d/salt-master restart
+
+
+GPG
+---
+
+Docs: [salt.renderers.gpg](http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html)
+
+Create GPG "homedir" for Salt in `/etc/salt/gpgkeys`:
+
+    # gpg --gen-key --homedir /etc/salt/gpgkeys
+
+Export this key so you can encrypt data somewhere else:
+
+    # gpg --armor --homedir /etc/salt/gpgkeys --armor --export > key.asc
+
+Modify file `/etc/salt/master`:
+
+    renderer: jinja | yaml | gpg
+
+Restart:
+
+    # /etc/init.d/salt-master restart
+    
+Now you can store sensitive data in Pillar encrypted using that GPG key, for example:
+
+    # /srv/pillar/example.sls
+    a-secret: |
+        -----BEGIN PGP MESSAGE-----
+        Version: GnuPG v1
+
+        hQEMAweRHKaPCfNeAQf9GLTN16hCfXAbPwU6BbBK0unOc7i9/etGuVc5CyU9Q6um
+        ...
+        skqmFTbOiA==
+        -----END PGP MESSAGE-----
+
+
 Links
 -----
 
