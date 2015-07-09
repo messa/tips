@@ -110,16 +110,6 @@ More about this in
 [the top file documentation](http://docs.saltstack.com/en/latest/ref/states/top.html).
 
 
-Formulas
---------
-
-Formulas are pre-written Salt States.
-All official Salt Formulas can be found at
-[github.com/saltstack-formulas](https://github.com/saltstack-formulas).
-You can download them to your Salt state tree or use them as GitFS remote.
-[Docs](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html)
-
-
 Less verbose output
 -------------------
 
@@ -173,6 +163,14 @@ Links
 - [Salt Walkthrough](http://docs.saltstack.com/en/latest/topics/tutorials/walkthrough.html)
 - [Full list of builtin execution modules](http://docs.saltstack.com/en/latest/ref/modules/all/index.html)
 - [Best Practices](https://docs.saltstack.com/en/latest/topics/best_practices.html)
+
+Formulas (pre-written Salt States):
+
+- [Official Salt Formulas: github.com/saltstack-formulas](https://github.com/saltstack-formulas)
+  - You can download them to your Salt state tree or use them as GitFS remote
+- [Docs: Salt Formulas](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html)
+- More inspiration:
+  - [Github code search: `top.sls base`](https://github.com/search?q=top.sls+base&type=Code) :)
 
 Czech articles about Salt:
 
