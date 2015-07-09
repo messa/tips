@@ -164,13 +164,21 @@ Links
 - [Full list of builtin execution modules](http://docs.saltstack.com/en/latest/ref/modules/all/index.html)
 - [Best Practices](https://docs.saltstack.com/en/latest/topics/best_practices.html)
 
+Some frequently used states and commands:
+
+- [salt.states.cmd](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.cmd.html)
+- [salt.states.file](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.file.html)
+- [salt.states.pkg](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkg.html)
+- [salt.states.pkgrepo](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.pkgrepo.html)
+- [salt.states.service](http://docs.saltstack.com/en/latest/ref/states/all/salt.states.service.html)
+
 Formulas (pre-written Salt States):
 
 - [Official Salt Formulas: github.com/saltstack-formulas](https://github.com/saltstack-formulas)
   - You can download them to your Salt state tree or use them as GitFS remote
 - [Docs: Salt Formulas](http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html)
 - More inspiration:
-  - [Github code search: `top.sls base`](https://github.com/search?q=top.sls+base&type=Code) :)
+  - [Github code search `top.sls base`](https://github.com/search?q=top.sls+base&type=Code) :)
 
 Czech articles about Salt:
 
