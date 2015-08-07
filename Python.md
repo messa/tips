@@ -2,6 +2,261 @@
 Python tips
 ===========
 
+
+Python version overview
+-----------------------
+
+Python 3.x is the current branch with active development.
+Python 2.x is still maintained, but without adding new features.
+
+This is a summary of major new features in recent Python versions
+(thousands of bug fixes, small and parser/C API/internals/performance enhancements are not mentioned):
+
+- Python 3.x
+    - __Python 3.6__ · [What’s New In Python 3.6](https://docs.python.org/3.6/whatsnew/3.6.html)
+        - currently (2015-08-07) in alpha phase with only "minor" improvements
+            - 3.6.0 alpha 1 not released yet
+    - __Python 3.5__ · [What’s New In Python 3.5](https://docs.python.org/3.6/whatsnew/3.5.html)
+        - currently (2015-08-07) in beta phase
+            - 3.5.0 beta 4 released 2015-07-26
+            - 3.5 alpha 1 released 2015-02-08
+        - `math.isclose()`
+        - removed `.pyo` files
+        - new matrix multiplication operator: `a @ b`
+        - coroutines with async and await syntax
+    - __Python 3.4__ · [What’s New In Python 3.4](https://docs.python.org/3.6/whatsnew/3.4.html)
+        - 3.4.0 released 2014-03-16
+        - C files preprocessor "Argument Clinic"
+        - `pip` command should always be available
+        - newly created file descriptors non-inheritable
+        - new modules:
+            - `asyncio` for asynchronous I/O
+                - deprecates `asyncore` and `asynchat`
+            - `ensurepip`
+            - `enum`
+            - `pathlib` with `Path` object for nice path abstraction
+            - `selectors` for I/O multiplexing
+            - `statistics`
+            - `tracemalloc`
+    - __Python 3.3__ · [What’s New In Python 3.3](https://docs.python.org/3.6/whatsnew/3.3.html)
+        - `yield from` for generator delegation
+        - `u'unicode'` syntax is accepted again for `str` objects
+        - `venv` for virtual environments
+        - new modules:
+            - `faulthandler`
+            - `ipaddress`
+            - `lzma`
+            - `unittest.mock`
+            - `venv`
+    - __Python 3.2__ · [What’s New In Python 3.2](https://docs.python.org/3.6/whatsnew/3.2.html)
+        - stable ABI
+        - `logging` dictionary-based configuration
+        - `.pyc` files stored in `__pycache__` directory
+        - WSGI v1.0.1, PEP 3333
+        - new modules:
+            - `argparse` for command line parsing
+            - `concurrent.futures`
+    - __Python 3.1__ · [What’s New In Python 3.1](https://docs.python.org/3.6/whatsnew/3.1.html)
+        - `collections.OrderedDict`
+        - format specifier for thousands separator: `format(1234567.89, ',.2f') -> '1,234,567.89'`
+        - directories and zip archives containing a `__main__.py` file can now be executed directly by passing their name to the interpreter
+        - fields in `format()` strings can now be automatically numbered: `'Sir {} of {}'.format('Gallahad', 'Camelot')`
+            - formerly, the string would have required numbered fields such as: `'Sir {0} of {1}'`
+        -  `with` statement now allows multiple context managers in a single statement: `with open('mylog.txt') as infile, open('a.out', 'w') as outfile: ...`
+    - __Python 3.0__ · [What’s New In Python 3.0](https://docs.python.org/3.6/whatsnew/3.0.html)
+        - also known as "Python 3000" or "Py3K"
+        - first ever intentionally backwards incompatible Python release
+        - (some of 3.0 features are already present in Python 2.6)
+        - `print` is a function
+        - `dict.keys()`, `dict.values()`, `dict.items()` return "views" instead of lists
+            - `dict.iterkeys()`, `dict.itervalues()`, `dict.iteritems()` gone
+        - `range()` returns a special object instead of list, `xrange`() gone
+        - `sorted()` and `list.sort()` no longer accepts `cmp` agument, use `key` instead
+        - Text vs bytes:
+            - `str` is the new `unicode`
+            - `b'...'` for binary data, `'foo'` for strings
+            - `str` and `bytes` objects cannot be mixed (like `unicode` and `str` in 2.x)
+            - `bytes` is immutable, `bytearray` is mutable
+        - `nonlocal` keyword
+        - unpacking: `a, b, *rest = some_sequence`
+        - dictionary compehensions: `{k: v for k, v in stuff}`
+        - set literals: `{1, 2, 3}`
+        - set comprehensions
+        - `except Exception, var` forbidden (use `except Exception as var`)
+        - `True`, `False` and `None` are reserved keywords
+        - metaclasses and `__metaclass__`
+        - ellipsis: `...` can be used anywhere, not only in slices
+        - `super()`
+        - old-style classes gone, all classes are new-style
+        - `raw_input()` renamed to `input()`
+        - `reload()` removed, use `imp.reload()`
+        - some modules renamed or restructured
+        - _"It is not recommended to try to write source code that runs unchanged under both Python 2.6 and 3.0"_ - this opinion changed in later 3.x versions :) It was expected to use the tool `2to3`.
+        - BTW. most problems with porting from 2.x to 3.x were unicode/str/bytes related, for example in case of WSGI
+- Python 2.x
+    - __Python 2.7__ · released 2010-07-03 · [What’s New in Python 2.7](https://docs.python.org/3.6/whatsnew/2.7.html)
+        - last of the 2.x releases, with long-term support
+        - Python 3.1 features backported to 2.7:
+            - set literals: `{1, 2, 3}`
+            - dictionary and set comprehensions: `{i: i*2 for i in range(3)}`
+            - `multiple context managers in a single `with` statement
+            - `io` library rewritten in C for performance
+            - `memoryview` object
+            - subset of `importlib`
+        - `collections.OrderedDict`, `collections.Counter`
+        - `logging`: dictionary-based configuration
+        - `dict` views `viewskeys()`, `viewvalues()` and `viewitems()`
+        - `PYTHONWARNIONGS` env variable
+        - `subprocess.check_output()`
+        - `weakref.WeakSet`
+        - new modules:
+            - `argparse`
+            - `sysconfig` from Distutils
+    - __Python 2.6__ · released 2008-10-01 · [What’s New in Python 2.6](https://docs.python.org/3.6/whatsnew/2.6.html)
+        - prepares the migration path to Python 3.0
+        - backported from 3.0:
+            - `__complex__()` magic method for converting objects to a complex number
+            - alternative syntax: `except Exception as e`
+        - command-line switch `-3` enables warnings about features removed in Python 3
+        - Python development process:
+            - new issue tracker Roundup
+            - Sphinx and reStructuredText
+        - `str.format()`: `'user: {0} {desc}'.format('foo', name='bar')`
+        - `print` as function (optional)
+        - `bytes`, `bytearray`
+        - `from __future__ import unicode_literals`
+        - octal and binary integer literals: `0o21`, `0b1011`
+        - class decorators
+        - `collections.namedtuple(typename, fieldnames)`
+        - new packages:
+            - `abc` - abstract base classes
+            - `ast` - Abstract Syntax Tree representation of Python code
+            - `fractions`
+            - `io`
+            - `json`
+            - `multiprocessing`
+            - `plistlib` for parsing Mac OS X `.plist` files
+            - `ssl`
+        - deprecated modules:
+            - `md5`
+            - `sets`
+            - `sha`
+    - __Python 2.5__ · released 2006-09-19 · [What’s New in Python 2.5](https://docs.python.org/3.6/whatsnew/2.5.html)
+        - conditional expressions: `x = 'foo' if something else 'bar'`
+        - `with` statement: `with open('/etc/passwd') as f: print f.read()`
+            - context management protocol - new magic methods:
+                - `__enter__()`
+                - `__exit__(exc_type, exc_value, traceback)`
+        - absolute and relative imports: `from .foo import bar`
+        - unified `try`/`except`/`else`/`finally`
+        - generator enhancements
+            - `yield` is now expression and returns value
+            - new `GeneratorExit` exception
+        - new `__index__()` magic (special) method
+        - new built-in functions: `any()`, `all()`
+        - new modules:
+            - `cProfile`
+            - `contextlib`
+            - `ctypes` for calling C functions from Python
+            - `functools`
+            - `hashlib`
+            - `msilib` for creating Microsoft Installer `.msi` and CAB files
+            - `spwd` for accessing shadow password database
+            - `sqlite3` - SQLite database
+            - `uuid` for creating universally unique identifiers (UUIDs)
+            - `wsgiref`
+            - `xml.etree`
+    - __Python 2.4__ · released 2005-03-30 (2.4.1) · [What’s New in Python 2.4](https://docs.python.org/3.6/whatsnew/2.4.html)
+        - function and method decorators: `@classmethod`, `@property` etc.
+        - generator expressions: `(item for item in items if item.good())`
+        - built-in set objects `set()` and `frozenset()`
+        - `string.Template`
+        - `reversed()`
+        - `None` is a constant, cannot be assigned a new value
+        - new modules:
+            - `collections`
+            - `cookielib`
+            - `decimal` with `Decimal` data type
+            - `subprocess`
+    - __Python 2.3__ · released 2003-07-29 · [What’s New in Python 2.3](https://docs.python.org/3.6/whatsnew/2.3.html)
+        - source code encoding header: `# -*- coding: UTF-8 -*-`
+        - importing modules from ZIP archives
+        - universal newline support
+        - `enumerate()`
+        - `True`, `False`
+        - extended slices: `L = range(10); L[::2]`
+        - new built-in function `sum(iterable, start=0)`
+        - `assert` statement no longer checks the `__debug__` flag
+        - new types in `datetime` module: `date`, `time` and `datetime`
+        - new modules and packages:
+            - `bz2`
+            - `csv`
+            - `itertools`
+            - `logging`
+            - `optparse`
+            - `sets` with `Set()` - new data type for mutable sets
+            - `tarfile`
+            - `textwrap`
+            - `timeit`
+    - __Python 2.2__ · released 2001-12-21 - 2002-10-14 (2.2.2) · [What’s New in Python 2.2](https://docs.python.org/3.6/whatsnew/2.2.html)
+        - any built-in type can be subclassed (including integers)
+        - old-style and __new-style classes__
+            - new-style classes are subclassed from other new-style classes or from `object`
+                  class C (object):
+                      pass
+        - descriptors
+            - objects that live inside class objects, and have a few attributes of their own:
+                - `__name__` is the attribute’s name.
+                - `__doc__` is the attribute’s docstring.
+                - `__get__(object)` is a method that retrieves the attribute value from object.
+                - `__set__(object, value)` sets the attribute on object to value.
+                - `__delete__(object, value)` deletes the value attribute of object
+            - For example, when you write `obj.x`, the steps that Python actually performs are:
+                  descriptor = obj.__class__.x
+                  descriptor.__get__(obj)
+        - static methods: `staticmethod()`
+        - class methods: `classmethod()`
+        - properties: `property()`
+        - slots: `__slots__`
+        - generators: `yield` keyword
+        - iterators: `iter(obj)`, `__iter__()` method, `StopIteration` exception
+        - multiple inheritance and diamond rule
+        - `__getattribute__(attr_name)` (new-style classes)
+        - `socket` with support for IPv6
+        - new module `hmac`
+    - __Python 2.1__ · released 2001-04-17 · [What’s New in Python 2.1](https://docs.python.org/3.6/whatsnew/2.1.html)
+        - Python Software Foundation (PSF) founded
+        - Python Enhancement Proposals (PEPs) introduced in development process
+        - statically nested scopes (optional in 2.1)
+        - `__future__` directives, for example `from __future__ import nested_scopes`
+        - Python classes can overload operators `<`, `<=`, `>`, `>=`, `==`, `!=` using magic methods `__lt__()`, `__le__()` etc.
+        - `warnings` module, warning framework
+        - `weakref` module for weak references
+        - function attributes
+              def f(): pass
+              f.foo = 42
+        - `sys.displayhook()`, `sys.excepthook()`
+    - __Python 2.0__ · released 2000-10-16 · [What’s New in Python 2.0](https://docs.python.org/3.6/whatsnew/2.0.html)
+        - core development team moved from CNRI to BeOpen
+        - __Unicode__ strings (`u'čau'`, `u'\u010dau'`)
+        - list comprehensions: `[s for s in items if s.startswith('foo')]`
+        - assignment operators: `+=`, `-=`, `*=` etc.
+        - string methods: `'joe'.capitalize()`) instead of `string.capitalize('joe')` from `string` module
+        - garbage collection supports cycles (`instance.myself = instance`)
+        - `f(*args, **kwargs)` instead of `apply(f, args, kwargs)`
+        - `print` stream redirection: `print >> sys.stderr, 'Hello'`
+        - `dict.setdefault(key, default)`
+        - new packages: `distutils`, `xml`, `gettext`, `mmap` and other
+
+You can almost learn Python just from this summary :)
+
+Links:
+
+- https://docs.python.org/dev/whatsnew/
+- https://docs.python.org/dev/whatsnew/changelog.html
+
+
+
 Colored output on Linux terminal
 --------------------------------
 
@@ -16,10 +271,3 @@ print('All your {t.red}base {t.underline}are belong to us{t.normal}'.format(t=te
 ```
 
 Most useful features: `normal`, `bold`, `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
-
-
-
-
-
-
-
