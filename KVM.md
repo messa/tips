@@ -40,7 +40,7 @@ __How to release mouse:__ press both Ctrl Alt :)
 
 Only for non-important data.
 
-    kvm -drive disk.img,cache=unsafe
+    kvm -drive file=disk.img,cache=unsafe
 
 
 Networking
