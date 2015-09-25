@@ -73,7 +73,7 @@ __Add `tap0`:__
     sudo brctl addif br0 tap0
 
 _Alternative:_
-instead of adding `ta0` to `br0` manually,
+instead of adding `tap0` to `br0` manually,
 it can be included in `/etc/network/interfaces` too.
 See
 [Debian QEMU wiki](https://wiki.debian.org/QEMU#Host_and_guests_on_same_network).
