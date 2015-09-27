@@ -9,11 +9,11 @@ Anyway, it uses hardware virtualiztion (Intel VT, AMD-V).
 CPU support
 -----------
 
-How can I tell if I have Intel VT or AMD-V?
+How can I tell if I have Intel VT (Virtualization Technology) or AMD-V?
 
     egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 
-If something shows up, you have VT.
+If something shows up, your CPU has hardware support for virtualization.
 
 Prepare disk
 ------------
