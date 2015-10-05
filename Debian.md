@@ -12,9 +12,40 @@ First login
 Install basic packages: `sudo aptitude install apt-file bind9-host colordiff dnsutils dstat git htop iotop less mlocate nginx ntp openssl python python3 python3-venv rsync screen strace sudo tree vim`
 
 
+DNS local cache
+---------------
 
-Versions
---------
+For faster DNS queries, install __[pdnsd](https://en.wikipedia.org/wiki/Pdnsd)__: `sudo aptitude install pdnsd`
+
+- [debian-administration.org: Speedup DNS requests with a local cache](https://www.debian-administration.org/article/390/Speedup_DNS_requests_with_a_local_cache)
+
+Configuration file is `/etc/pdnsd.conf`. For most setups I recommend to set:
+
+- set `uptest = none` - server(s) will not be checked whether they are live
+- set `preset = on` - it means that the default state of given server is `on`; if it was `off` and `uptest` was `none`, then the server state would never switch to `on` and every query would fail with debug message `No server is marked up and allowed for this domain`.
+
+If there are any problems, you can set `debug = on` and watch `/var/cache/pdnsd.debug`.
+
+If you want to have a "local domain", for example _.ldev_, so _anything.ldev_ resolves to `127.0.0.1`:
+
+    rr {
+        name = ldev;
+        owner = localhost;
+        a = 127.0.0.1;
+        soa = localhost, root.localhost, 42, 86400, 900, 86400, 86400;
+    }
+
+    rr {
+        name = *.ldev;
+        a = 127.0.0.1;
+    }
+
+
+
+Debian rersions
+---------------
+
+Just for reference... I'm always confused which Debian version has which name :)
 
 Last updated: 2015-06-08
 
