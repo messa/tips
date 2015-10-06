@@ -2,9 +2,10 @@
 KVM
 ===
 
-KVM is virtualization tool for Linux, built on top of Qemu.
-Or something like that.
-Anyway, it uses hardware virtualiztion (Intel VT, AMD-V).
+KVM is virtualization tool for Linux, built on top of Qemu. It uses hardware virtualiztion (Intel VT, AMD-V).
+
+__Note: This document describes how to run kvm "manually". For production environment it is better to use libvirt.__
+
 
 CPU support
 -----------
@@ -15,6 +16,7 @@ How can I tell if I have Intel VT (Virtualization Technology) or AMD-V?
 
 If something shows up, your CPU has hardware support for virtualization.
 
+
 Prepare disk
 ------------
 
@@ -22,6 +24,7 @@ You can just create some big file (`dd if=/dev/zero of=disk.img bs=1M count=1024
 Another option is qcow2 file format:
 
     qemu-img create -f qcow2 disk.img 10G
+
 
 Run
 ---
@@ -80,7 +83,7 @@ See
 
 __Run kvm:__
 
-    kvm  -file ...etc. \
+    kvm -file ...etc. \
         -net nic,macaddr=de:ad:be:ef:11:22 \
         -net tap,ifname=tap0,script=no,downscript=no
 
