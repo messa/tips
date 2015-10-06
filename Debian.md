@@ -11,6 +11,17 @@ First login
 
 Install basic packages: `sudo aptitude install apt-file bind9-host colordiff dnsutils dstat git htop iotop less mlocate nginx ntp openssl python python3 python3-venv rsync screen strace sudo tree vim`
 
+Hostname
+--------
+
+[Debian Wiki: How to change hostname](https://wiki.debian.org/HowTo/ChangeHostname)
+
+Change files: `/etc/hostname`, `/etc/hosts`, `/etc/mailname`, `/etc/resolv.conf`
+
+You can grep for occurrences of the old hostname in entire `/etc` directory:
+
+    grep -Ri <old hostname> /etc
+
 
 DNS local cache
 ---------------
