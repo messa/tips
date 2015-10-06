@@ -16,3 +16,6 @@ TODO: add descriptions and examples
     $*
 
 [Documentation: Automatic Variables](https://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html)
+
+http://www.oreilly.com/openbook/make3/book/ch02.pdf
+
