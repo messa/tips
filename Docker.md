@@ -30,6 +30,8 @@ Some links:
 - [Docker docs: Authenticating proxy with nginx](https://docs.docker.com/registry/nginx/)
 - [docs/configuration.md](https://github.com/docker/distribution/blob/master/docs/configuration.md)
 - [docs/deploying.md](https://github.com/docker/distribution/blob/master/docs/deploying.md)
+- [docs/storage-drivers/s3.md](https://github.com/docker/distribution/blob/master/docs/storage-drivers/s3.md)
+
 
 ### How to run private docker repository
 
@@ -100,58 +102,58 @@ If you are curious, this is example of the directory structure that Registry cre
 Now just run it:
 
     exec docker run \
-    	-d -p 5000:5000 --restart=always \
-    	--name registry \
-      	-v /srv/docker-registry/config.yml:/etc/docker/registry/config.yml \
-    	-v /srv/docker-registry/auth:/auth \
-    	-v /srv/docker-registry/data:/var/lib/registry \
-      	registry:2
+       -d -p 5000:5000 --restart=always \
+       --name registry \
+       -v /srv/docker-registry/config.yml:/etc/docker/registry/config.yml \
+       -v /srv/docker-registry/auth:/auth \
+       -v /srv/docker-registry/data:/var/lib/registry \
+       registry:2
 
 Point nginx reverse proxy to port 5000:
 
     server {
-    	listen 80;
-    	server_name docker.leadhub.cz;
+        listen 80;
+        server_name docker.leadhub.cz;
 
-    	location / {
-	    	return  301 https://$server_name$request_uri;
-	    }
+        location / {
+            return  301 https://$server_name$request_uri;
+        }
     }
 
     server {
-	    listen 443 ssl;
-	    server_name docker.example.com;
+        listen 443 ssl;
+        server_name docker.example.com;
 
-    	ssl_certificate     /etc/nginx/ssl/docker.example.com.cert;
-    	ssl_certificate_key /etc/nginx/ssl/docker.example.com.key;
-    	ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
-    	ssl_ciphers         HIGH:!aNULL:!MD5;
+        ssl_certificate     /etc/nginx/ssl/docker.example.com.cert;
+        ssl_certificate_key /etc/nginx/ssl/docker.example.com.key;
+        ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+        ssl_ciphers         HIGH:!aNULL:!MD5;
 
         # disable any limits to avoid HTTP 413 for large image uploads
         client_max_body_size 0;
 
-    	# required to avoid HTTP 411: see Issue #1486 (https://github.com/docker/docker/issues/1486)
-    	chunked_transfer_encoding on;
+        # required to avoid HTTP 411: see Issue #1486 (https://github.com/docker/docker/issues/1486)
+        chunked_transfer_encoding on;
 
-    	location = / {
-    		add_header Content-Type text/plain;
-    		return 200 "Docker Repository";
-    	}
+        location = / {
+            add_header Content-Type text/plain;
+            return 200 "Docker Repository";
+        }
 
-    	location /v2/ {
-    		# Do not allow connections from docker 1.5 and earlier
-    		# docker pre-1.6.0 did not properly set the user agent on ping, catch "Go *" user agents
-    		if ($http_user_agent ~ "^(docker\/1\.(3|4|5(?!\.[0-9]-dev))|Go ).*$" ) {
-    			return 404;
-    		}
+        location /v2/ {
+            # Do not allow connections from docker 1.5 and earlier
+            # docker pre-1.6.0 did not properly set the user agent on ping, catch "Go *" user agents
+            if ($http_user_agent ~ "^(docker\/1\.(3|4|5(?!\.[0-9]-dev))|Go ).*$" ) {
+                return 404;
+            }
 
-    		proxy_pass http://127.0.0.1:5000;
-    		proxy_set_header Host              $http_host;
-    		proxy_set_header X-Real-IP         $remote_addr;
-        	proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
-    		proxy_set_header X-Forwarded-Proto $scheme;
-    		proxy_read_timeout 900;
-    	}
+            proxy_pass http://127.0.0.1:5000;
+            proxy_set_header Host              $http_host;
+            proxy_set_header X-Real-IP         $remote_addr;
+            proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_read_timeout 900;
+        }
     }
 
 Reload nginx:
