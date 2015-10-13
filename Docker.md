@@ -15,6 +15,32 @@ https://docs.docker.com/installation/debian/
 - TODO: What does that `--rm` mean?
 
 
+Dockerfile
+----------
+
+### Useful or interesting snippets
+
+    FROM debian:jessie
+    RUN apt-get update && apt-get install -y --no-install-recommends \
+	    build-essential \
+	    vim \
+	    ...
+
+Cleanup for smaller images:
+
+    RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+
+### Signals
+
+Proper handling of signals because of init etc. so Ctr-C and `docker stop` works - download [this signal_wrapper.py](https://github.com/messa/este-docker/blob/master/signal_wrapper.py) and run commands this way:
+
+    ADD signal_wrapper.py /
+    CMD ["/signal_wrapper.py", "gulp", "-p"]
+
+This is my "invention" - I couldn't find anything like this (just some hints that this is the way). But it is possible that there is more correct way how to deal with signals.
+
+
 Docker Registry
 ---------------
 
