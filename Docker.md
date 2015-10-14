@@ -12,8 +12,6 @@ https://docs.docker.com/installation/debian/
 
     sudo docker run --rm hello-world
 
-- TODO: What does that `--rm` mean?
-
 
 Dockerfile
 ----------
@@ -21,14 +19,20 @@ Dockerfile
 ### Useful or interesting snippets
 
     FROM debian:jessie
-    RUN apt-get update && apt-get install -y --no-install-recommends \
-	    build-essential \
-	    vim \
-	    ...
+    ENV DEBIAN_FRONTEND noninteractive
+    RUN apt-get update && \
+        apt-get install -y --no-install-recommends \
+	        build-essential \
+	        python3 \
+	        python3-dev \
+	        vim \
+	        ...
 
 Cleanup for smaller images:
 
-    RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+    RUN apt-get ... && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
 
 
 ### Signals
