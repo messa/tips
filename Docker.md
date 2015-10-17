@@ -34,6 +34,8 @@ Cleanup for smaller images:
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
+For more inspiration, see official Dockerfiles at [github.com/docker-library](https://github.com/docker-library).
+
 
 ### Signals
 
