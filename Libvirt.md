@@ -28,4 +28,26 @@ Example:
     virt-viewer -c qemu+ssh://root@example.com/system example-01
 
 
+Faster disk I/O
+---------------
+
+Not for production - guest file system may become corrupt if guest operating system is not terminated gracefully.
+
+    virsh edit example-01
+
+Add the parameter `cache='unsafe'`:
+
+    <domain type='kvm'>
+       ...
+       <devices>
+         <disk type='file' device='disk'>
+           <driver name='qemu' type='qcow2' cache='unsafe'/>
+           ...
+         </disk>
+       </devices>
+       ...
+    </domain>
+
+
+
 
