@@ -7,11 +7,6 @@ https://docs.docker.com/
 
 - TODO: list of components
 
-https://docs.docker.com/installation/debian/
-
-
-    sudo docker run --rm hello-world
-
 
 Installation on Debian
 ----------------------
@@ -29,7 +24,7 @@ Docs: https://docs.docker.com/installation/debian/
     sudo apt-get install docker-engine
     sudo service docker start
     # verify docker is installed correctly:
-    sudo docker run hello-world
+    sudo docker run --rm hello-world
 
 
 Dockerfile
