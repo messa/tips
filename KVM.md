@@ -4,7 +4,7 @@ KVM
 
 KVM is virtualization tool for Linux, built on top of Qemu. It uses hardware virtualiztion (Intel VT, AMD-V).
 
-__Note: This document describes how to run kvm "manually". For production environment it is better to use libvirt.__
+__Note: This document describes how to run kvm "manually". For production environment it is better to use [libvirt](https://github.com/messa/tips/blob/master/Libvirt.md).__
 
 
 CPU support
