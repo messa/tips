@@ -18,7 +18,7 @@ Example:
         --file /dev/mapper/vg1-lv_vm_example_01 \
         --virt-type kvm \
         --os-type linux --os-variant debianwheezy \
-        --network default \
+        --network network=default \
         --graphics vnc,port=5901,listen=127.0.0.1,password=xxx \
         --noautoconsole
 
