@@ -27,19 +27,18 @@ Installation
 Hello World!
 ------------
 
-    $ sudo su -
-    # salt-key
+    $ sudo salt-key
     Accepted Keys:
     Denied Keys:
     Unaccepted Keys:
     debvm
     Rejected Keys:
-    # salt-key --accept-all
+    $ sudo salt-key --accept-all
     ...
-    # salt '*' test.ping
+    $ sudo salt '*' test.ping
     debvm:
         True
-    # salt debvm cmd.run uname
+    $ sudo salt debvm cmd.run uname
     debvm:
         Linux
 
@@ -47,17 +46,17 @@ Minion configuration - address of master is stored in file `/etc/salt/minion`.
 
 More examples of execution modules:
 
-    # salt '*' disk.usage
-    # salt '*' pkg.install vim
-    # salt '*' network.interfaces
-    # salt '*' sys.doc
-    # salt '*' sys.list_modules
-    # salt '*' sys.list_functions
-    # salt '*' sys.list_runner_functions
-    # salt '*' sys.list_state_functions
-    # salt '*' pillar.items
+    salt '*' disk.usage
+    salt '*' pkg.install vim
+    salt '*' network.interfaces
+    salt '*' sys.doc
+    salt '*' sys.list_modules
+    salt '*' sys.list_functions
+    salt '*' sys.list_runner_functions
+    salt '*' sys.list_state_functions
+    salt '*' pillar.items
 
-Salt states, modules... what is what?
+Salt states, modules... terminology:
 
 - __State modules__  are the components that map to actual enforcement and management
   of Salt states.
@@ -122,10 +121,12 @@ Restart:
     # /etc/init.d/salt-master restart
 
 
-GPG
----
+Pillar with GPG
+---------------
 
 Docs: [salt.renderers.gpg](http://docs.saltstack.com/en/latest/ref/renderers/all/salt.renderers.gpg.html)
+
+The following is needed to be done just on the Salt master.
 
 Create GPG "homedir" for Salt in `/etc/salt/gpgkeys`:
 
