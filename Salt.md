@@ -21,7 +21,7 @@ Installation
         | sudo tee /etc/apt/sources.list.d/salt.list
 
     sudo aptitude update
-    sudo aptitude install salt-minion salt-master salt-syndic
+    sudo aptitude install salt-minion salt-master
 
 
 Hello World!
