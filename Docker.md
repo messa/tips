@@ -52,6 +52,22 @@ Cleanup for smaller images:
 For more inspiration, see official Dockerfiles at [github.com/docker-library](https://github.com/docker-library).
 
 
+### Private NPM repository
+
+If you use private NPM repository (for example [Sinopia](https://www.npmjs.com/package/sinopia)) and want to run `npm install` as part of `docker build`:
+
+First, prepare `npmrc` file:
+
+    egrep '^//npm.example.com/:_authToken=' ~/.npmrc > npmrc
+    echo 'registry=https://npm.example.com' >> npmrc
+
+`Dockerfile` snippet:
+
+    COPY npmrc /root/.npmrc
+    WORKDIR my-web-app
+    RUN npm install --unsafe-perm
+
+
 ### Signals
 
 Proper handling of signals because of init etc. so Ctr-C and `docker stop` works - download [this signal_wrapper.py](https://github.com/messa/este-docker/blob/master/signal_wrapper.py) and run commands this way:
