@@ -214,6 +214,46 @@ We need to create admin user.
     rs.add('node2.example.com:27017')
 
 
+Disable transparent hugepages
+-----------------------------
+
+Salt state:
+
+
+    /usr/local/sbin/disable-transparent-hugepages:
+      file.managed:
+        - mode: 755
+        - contents: |
+           #!/bin/bash
+           set -e
+           if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+             echo never > /sys/kernel/mm/transparent_hugepage/enabled
+           fi
+           if test -f /sys/kernel/mm/transparent_hugepage/defrag; then
+             echo never > /sys/kernel/mm/transparent_hugepage/defrag
+           fi
+
+    {% if grains.get('systemd') %}
+
+    /etc/systemd/system/disable-transparent-hugepages.service:
+      file.managed:
+        - contents: |
+            [Unit]
+            Description=Disable transparent hugepages
+            [Service]
+            ExecStart=/usr/local/sbin/disable-transparent-hugepages
+            Restart=never
+            [Install]
+            WantedBy=multi-user.target
+
+    service_disable_thp:
+      service.running:
+        - name: disable-transparent-hugepages
+        - enable: true
+
+    {% endif %}
+
+
 Links
 -----
 
