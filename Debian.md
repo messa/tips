@@ -53,19 +53,19 @@ If you want to have a "local domain", for example _.ldev_, so _anything.ldev_ re
 
 
 
-Debian rersions
+Debian versions
 ---------------
 
 Just for reference... I'm always confused which Debian version has which name :)
 
-Last updated: 2015-06-08
+Last updated: 2015-10-29
 
 - next
     - __stretch__ (_testing_)
 - current
     - __jessie__ (8; _stable_)
-        - __8.1__ released 2015-06-06 -
-          [CD .iso](http://cdimage.debian.org/debian-cd/8.1.0/amd64/iso-cd/)
+        - __8.2__ released 2015-09-05 - [CD .iso](http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/)
+        - 8.1 released 2015-06-06
         - 8.0 released 2015-04-26
             - systemd is default (sysvinit still available), UEFI sopport
             - Linux 3.16.7-ckt9,
