@@ -15,15 +15,23 @@ This is a summary of major new features in recent Python versions
 - Python 3.x
     - __Python 3.6__ · [What’s New In Python 3.6](https://docs.python.org/3.6/whatsnew/3.6.html)
         - currently (2015-08-07) in alpha phase with only "minor" improvements
-            - 3.6.0 alpha 1 not released yet
+            - 3.6.0a0 released 2015-10-20
     - __Python 3.5__ · [What’s New In Python 3.5](https://docs.python.org/3.6/whatsnew/3.5.html)
-        - currently (2015-08-07) in beta phase
-            - 3.5.0 beta 4 released 2015-07-26
-            - 3.5 alpha 1 released 2015-02-08
-        - `math.isclose()`
+        - 3.5.0 released 2015-09-13
+        - `math.isclose()`, `cmath.isclose()` for [approximate equality test](https://docs.python.org/3.6/whatsnew/3.5.html#pep-485-a-function-for-testing-approximate-equality)
         - removed `.pyo` files
-        - new matrix multiplication operator: `a @ b`
-        - coroutines with async and await syntax
+        - new [matrix multiplication operator: `a @ b`](https://docs.python.org/3.6/whatsnew/3.5.html#whatsnew-pep-465)
+        - [coroutines with `async` and `await` syntax](https://docs.python.org/3.6/whatsnew/3.5.html#whatsnew-pep-492)
+        - additional unpacking generalizations: `[1, *(2, 3)] == [1, 2, 3]`
+        - added `%` formatting to `byte` and `bytearray` (not just `str`)
+        - new methods `bytes.hex()`, `bytearray.hex()` and `memoryview.hex()`
+        - new [`subprocess.run()`](https://docs.python.org/3.5/library/subprocess.html#subprocess.run)
+        - new modules:
+            - `typing` - [type hints](https://docs.python.org/3.6/whatsnew/3.5.html#whatsnew-pep-484)
+            - `zipapp` - improving Python ZIP application support
+        - SSLv3 is disabled
+        - [automatic retry of system calls failed with EINTR](https://docs.python.org/3.6/whatsnew/3.5.html#pep-475-retry-system-calls-failing-with-eintr)
+        - performance optimizations: `collections.OrderedDict`, `os.scandir()`, `functools.lru_cache()`
     - __Python 3.4__ · [What’s New In Python 3.4](https://docs.python.org/3.6/whatsnew/3.4.html)
         - 3.4.0 released 2014-03-16
         - C files preprocessor "Argument Clinic"
