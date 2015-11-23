@@ -2,6 +2,17 @@
 Tips for SSH
 ============
 
+SSH tunnels
+-----------
+
+Example: `ssh -S none -N -C -R 8000:127.0.0.1:80 server.example.com`
+
+- `-S none` - do not use shared socket (see multiplexing below)
+- `-N` - do not run any command, just do tunneling
+- `-C` - compression
+- `-R 8000:127.0.0.1:80` - any connections to TCP socket port 8000 at server.example.com will be forwarded to 127.0.0.1:80 (the machine you are running this command on)
+
+
 SSH multiplexing
 ----------------
 
