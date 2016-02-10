@@ -76,6 +76,8 @@ This is a summary of major new features in recent Python versions
         - first ever intentionally backwards incompatible Python release
         - (some of 3.0 features are already present in Python 2.6)
         - `print` is a function
+        - `<int>/<int>` returns float; use `<int>//<int>` for integer division
+        - no `long`, only `int` (even big numbers)
         - `dict.keys()`, `dict.values()`, `dict.items()` return "views" instead of lists
             - `dict.iterkeys()`, `dict.itervalues()`, `dict.iteritems()` gone
         - `range()` returns a special object instead of list, `xrange`() gone
