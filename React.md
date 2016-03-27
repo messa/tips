@@ -58,3 +58,5 @@ Links
 - [egghead.io - Getting Started with Redux (video courses)](https://egghead.io/series/getting-started-with-redux)
 
 - [Este](https://github.com/este/este)
+
+- https://github.com/davezuko/react-redux-starter-kit
