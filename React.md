@@ -29,3 +29,7 @@ Links
 - [Full-Stack Redux Tutorial](http://teropa.info/blog/2015/09/10/full-stack-redux-tutorial.html) - "A Comprehensive Guide to Test-First Development with Redux, React, and Immutable" by [@teropa](https://twitter.com/teropa)
 
   > We'll be using Node, ES6, React, Webpack, and Babel.
+
+- [awesome-react](https://github.com/enaqx/awesome-react)
+- [awesome-redux](https://github.com/xgrommx/awesome-redux)
+- [egghead.io - Getting Started with Redux (video courses)](https://egghead.io/series/getting-started-with-redux)
