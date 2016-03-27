@@ -4,6 +4,29 @@ React
 
 See also [notes about Javascript](Javascript.md).
 
+__UNDER CONSTRUCTION__
+
+Model
+-----
+
+> All kinds of frameworks and architectures have state. In Ember apps and Backbone apps, state is in Models. In Angular apps, state is often in Factories and Services. In most Flux implementations, it is in Stores. How does Redux differ from these?
+>
+> The main difference is that in Redux, the application state is all stored in one single tree structure. In other words, everything there is to know about your application's state is stored in one data structure formed out of maps and arrays.
+>
+> This has many consequences, as we will soon begin to see. One of the most important ones is how this lets you think about the application state in isolation from the application's behavior. The state is pure data. It doesn't have methods or functions. And it isn't tucked away inside objects. It's all in one place.
+>
+> This may sound like a limitation, especially if you're coming to Redux from an object-oriented background. But it actually feels kind of liberating because of the way it lets you concentrate on the data and nothing but the data. And if you spend a little bit of time designing the application state, pretty much everything else will follow.
+>
+> -- teropa
+
+
+Libraries
+---------
+
+
+> Mocha is the test framework we'll be using and Chai is an assertion/expectation library we'll use inside our tests to specify what we expect to happen.
+
+
 Links
 -----
 
