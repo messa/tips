@@ -1,10 +1,6 @@
 
-Python tips
-===========
-
-
 Python version overview
------------------------
+=======================
 
 Python 3.x is the current branch with active development.
 Python 2.x is still maintained, but without adding new features.
@@ -264,20 +260,3 @@ Links:
 
 - https://docs.python.org/dev/whatsnew/
 - https://docs.python.org/dev/whatsnew/changelog.html
-
-
-
-Colored output on Linux terminal
---------------------------------
-
-There is a nice package called [blessings](https://pypi.python.org/pypi/blessings).
-
-```python
-from blessings import Terminal
-term = Terminal()
-print('I am ' + term.bold + 'bold' + term.normal + '!')
-print('I am', term.bold('bold') + '!')
-print('All your {t.red}base {t.underline}are belong to us{t.normal}'.format(t=term))
-```
-
-Most useful features: `normal`, `bold`, `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
