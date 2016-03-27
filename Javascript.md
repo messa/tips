@@ -2,6 +2,15 @@
 Javascript, Node, web apps and ecosystem
 ========================================
 
+__UNDER CONSTRUCTION__
+
+TODO:
+
+- describe CommonJS, UMD, require...
+- a few words about Immutable
+
+---
+
 Things you need to know:
 
   - __Javascript__ and its "current" version, ES6.
