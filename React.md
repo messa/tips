@@ -2,6 +2,8 @@
 React
 =====
 
+See also [notes about Javascript](Javascript.md).
+
 Links
 -----
 
