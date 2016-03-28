@@ -9,6 +9,8 @@ TODO:
 - describe CommonJS, UMD, require...
 - a few words about Immutable
 
+For faster `npm`: `npm set progress=false`
+
 ---
 
 Things you need to know:
