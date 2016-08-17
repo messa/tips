@@ -112,7 +112,7 @@ This is a summary of major new features in recent Python versions
         - `collections.OrderedDict`, `collections.Counter`
         - `logging`: dictionary-based configuration
         - `dict` views `viewskeys()`, `viewvalues()` and `viewitems()`
-        - `PYTHONWARNIONGS` env variable
+        - `PYTHONWARNINGS` env variable
         - `subprocess.check_output()`
         - `weakref.WeakSet`
         - new modules:
