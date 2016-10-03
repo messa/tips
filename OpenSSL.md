@@ -2,6 +2,25 @@
 OpenSSL cheatsheet
 ==================
 
+Generate CSR (Certificate Signing Request)
+------------------------------------------
+
+    openssl req -new -sha256 -newkey rsa:2048 -nodes \
+        -keyout $domain.key -out $domain.csr
+
+To verify generated CSR file:
+
+    openssl req -noout -text -in $domain.csr
+
+
+Show all remote certificates
+----------------------------
+
+    openssl s_client -connect www.seznam.cz:443
+
+- https://www.sslshopper.com/ssl-checker.html
+
+
 Make your own CA
 ----------------
 
