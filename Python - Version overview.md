@@ -10,8 +10,15 @@ This is a summary of major new features in recent Python versions
 
 - Python 3.x
     - __Python 3.6__ · [What’s New In Python 3.6](https://docs.python.org/3.6/whatsnew/3.6.html)
-        - currently (2015-08-07) in alpha phase with only "minor" improvements
+        - currently (2015-08-07) in beta phase
             - 3.6.0a0 released 2015-10-20
+            - 3.6.0b4 rekeased 2016-11-07
+        - _f-strings:_ `x = "world"; y = 42; print(f"Hello {x}, {y}")`
+        - underscores in numbers: `10_000_000`
+        - `__fspath__` protocol for pathlib
+        - `secrets.py`
+        - local time disambiguation: `datetime(..., fold=1)`
+        - development moving to Github
     - __Python 3.5__ · [What’s New In Python 3.5](https://docs.python.org/3.6/whatsnew/3.5.html)
         - 3.5.0 released 2015-09-13
         - `math.isclose()`, `cmath.isclose()` for [approximate equality test](https://docs.python.org/3.6/whatsnew/3.5.html#pep-485-a-function-for-testing-approximate-equality)
