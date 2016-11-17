@@ -53,3 +53,5 @@ Elasticsearch can be started using systemd (or classic sysv init scripts), but I
       "tagline" : "You Know, for Search"
     }
 
+For some intro to Elasticsearch continue with [Guide: Findihg your feet](https://www.elastic.co/guide/en/elasticsearch/guide/current/_finding_your_feet.html) ;)
+
