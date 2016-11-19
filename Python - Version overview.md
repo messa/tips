@@ -12,11 +12,11 @@ This is a summary of major new features in recent Python versions
     - __Python 3.6__ · [What’s New In Python 3.6](https://docs.python.org/3.6/whatsnew/3.6.html)
         - currently (2015-08-07) in beta phase
             - 3.6.0a0 released 2015-10-20
-            - 3.6.0b4 rekeased 2016-11-07
+            - 3.6.0b4 released 2016-11-07
         - _f-strings:_ `x = "world"; y = 42; print(f"Hello {x}, {y}")`
         - underscores in numbers: `10_000_000`
         - `__fspath__` protocol for pathlib
-        - `secrets.py`
+        - new module [`secrets`](https://docs.python.org/3.6/library/secrets.html)
         - local time disambiguation: `datetime(..., fold=1)`
         - development moving to Github
     - __Python 3.5__ · [What’s New In Python 3.5](https://docs.python.org/3.6/whatsnew/3.5.html)
