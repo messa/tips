@@ -6,3 +6,5 @@ Interesting videos about software development
 [Functional architecture - The pits of success - Mark Seemann, NDC Sydney 2016](https://www.youtube.com/watch?v=US8QG9I1XW0)
 
 [Functional Design Patterns - Scott Wlaschin, NDC Sydney 2017](https://www.youtube.com/watch?v=srQt1NAHYC0)
+
+[Shopify's Architecture to handle 80K RPS Celebrity Sales - Simon Eskildsen, GOTO 2017](https://www.youtube.com/watch?v=N8NWDHgWA28)
