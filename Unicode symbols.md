@@ -26,8 +26,7 @@ Arrows
 Links
 -----
 
-- [Wikipedia: Mathematical operators and symbols in Unicode]
-  (http://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode)
+- [Wikipedia: Mathematical operators and symbols in Unicode](http://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode)
 
 Interesting reading about Unicode:
 
