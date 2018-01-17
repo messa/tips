@@ -4,11 +4,13 @@ Debian versions
 
 Just for reference... I'm always confused which Debian version has which name :)
 
-Last updated: 2015-10-29
+Last updated: 2018-01-17
 
 - next
-    - __stretch__ (_testing_)
+    - __buster__ (_testing_)
 - current
+    - __stretch__
+- oldstable
     - __jessie__ (8; _stable_)
         - __8.2__ released 2015-09-05 - [CD .iso](http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/)
         - 8.1 released 2015-06-06
@@ -20,7 +22,7 @@ Last updated: 2015-10-29
               Apache 2.4.10,
               PostgreSQL 9.4.1,
               GCC 4.9.2
-- oldstable
+- old :)
     - __wheezy__ (7; _oldstable_)
         - 7.8 released 2015-01-10
         - 7.0 released 2013-05-04
@@ -31,7 +33,6 @@ Last updated: 2015-10-29
               Apache 2.2.22,
               PostgreSQL 9.1,
               GCC 4.7.2
-- old :)
     - __squeeze__ (6)
         - 6.0.10 released 2014-07-19
         - 6.0.0 released 2011-02-06
