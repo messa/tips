@@ -22,6 +22,28 @@ Enable NAT on the _NAT Network_.
 $ VBoxManage natnetwork start --netname natnet1
 ```
 
-Configure the VM you have created to use this _NAT Network_.
+This _NAT Network_ enables communication between VMs, from VM to internet, and (with port forwarding) from internet to VM. This will be the primary interface.
 
-Now you can ping host from VM, VM from host, VM from other VM, and internet from VM.
+In VM settings enable the **second interface** and set it up as _Host-only network_. This will enable connecting from host to VM.
+
+This second interface must be configured inside VM to retrieve IP address:
+
+```
+# /etc/network/interfaces
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug enp0s3
+iface enp0s3 inet dhcp
+
+# The secondary network interface
+allow-hotplug enp0s8
+iface enp0s8 inet dhcp
+```
+
+
