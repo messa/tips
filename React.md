@@ -60,3 +60,8 @@ Links
 - [Este](https://github.com/este/este)
 
 - https://github.com/davezuko/react-redux-starter-kit
+
+UI libraries
+------------
+
+[Semantic UI React](https://react.semantic-ui.com/introduction)
