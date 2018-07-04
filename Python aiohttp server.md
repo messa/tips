@@ -43,7 +43,25 @@ web.run_app(app)
 ```python
 async def handle(request):
     raise web.HTTPFound('/destination')
+
+# Signature: HTTPFound(location, *, headers=None, reason=None,
+#                      body=None, text=None, content_type=None)
 ```
+
+HTTP Exception hierarchy chart: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#exceptions
+
+
+### How to return JSON response
+
+```python
+async def handle(request):
+    data = {'some': 'data'}
+    return web.json_response(data)
+
+# Signature: json_response([data, ]*, text=None, body=None, status=200, reason=None,
+#                          headers=None, content_type='application/json', dumps=json.dumps)
+```
+
 
 Routing
 -------
@@ -54,8 +72,7 @@ Aiohttp offers multiple options how to match requests with handler code:
 
 ```python
 async def handle(request):
-    data = {'some': 'data'}
-    return web.json_response(data)    
+    return web.json_response({'foo': 'bar'})
 
 app.add_routes([web.get('/', handle),
                 web.get('/{name}', handle)])
