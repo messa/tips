@@ -48,6 +48,8 @@ async def handle(request):
 #                      body=None, text=None, content_type=None)
 ```
 
+Documentation: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#redirects
+
 HTTP Exception hierarchy chart: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#exceptions
 
 
