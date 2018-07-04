@@ -37,6 +37,11 @@ app.add_routes([web.get('/', handle),
 web.run_app(app)
 ```
 
+Function `run_app` is a utility function for running an application, serving it until keyboard interrupt and performing a Graceful shutdown.
+- reference: https://docs.aiohttp.org/en/stable/web_reference.html#aiohttp.web.run_app
+- signature:
+`run_app(app, *, host=None, port=None, path=None, sock=None, shutdown_timeout=60.0, ssl_context=None, print=print, backlog=128, access_log_class=aiohttp.helpers.AccessLogger, access_log_format=aiohttp.helpers.AccessLogger.LOG_FORMAT, access_log=aiohttp.log.access_logger, handle_signals=True, reuse_address=None, reuse_port=None)`
+
 
 ### How to make a redirect
 
