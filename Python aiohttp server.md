@@ -9,6 +9,8 @@ API reference of most important objects:
 
 Github: https://github.com/aio-libs/aiohttp
 
+StackOverflow: https://stackoverflow.com/questions/tagged/aiohttp?sort=frequent
+
 Installation
 ------------
 
@@ -35,6 +37,14 @@ app.add_routes([web.get('/', handle),
 web.run_app(app)
 ```
 
+
+### How to make a redirect
+
+```python
+async def handle(request):
+    raise web.HTTPFound('/destination')
+```
+
 Routing
 -------
 
@@ -46,7 +56,6 @@ Aiohttp offers multiple options how to match requests with handler code:
 async def handle(request):
     data = {'some': 'data'}
     return web.json_response(data)    
-
 
 app.add_routes([web.get('/', handle),
                 web.get('/{name}', handle)])
@@ -94,4 +103,52 @@ class MyView(View):
         return resp
 
 app.router.add_view('/view', MyView)
+```
+
+
+Sessions
+--------
+
+https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#user-sessions
+
+
+Forms
+-----
+
+https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#http-forms
+
+
+### Accessing POST data
+
+```python
+async def do_login(request):
+    data = await request.post()
+    login = data['login']
+    password = data['password']
+```
+
+
+### File uploads
+
+```python
+async def store_mp3_handler(request):
+    reader = await request.multipart()
+    # /!\ Don't forget to validate your inputs /!\
+    # reader.next() will `yield` the fields of your form
+    field = await reader.next()
+    assert field.name == 'name'
+    name = await field.read(decode=True)
+    field = await reader.next()
+    assert field.name == 'mp3'
+    filename = field.filename
+    # You cannot rely on Content-Length if transfer is chunked.
+    size = 0
+    with open(os.path.join('/spool/yarrr-media/mp3/', filename), 'wb') as f:
+        while True:
+            chunk = await field.read_chunk()  # 8192 bytes by default.
+            if not chunk:
+                break
+            size += len(chunk)
+            f.write(chunk)
+    return web.Response(text='{} sized of {} successfully stored'.format(filename, size))
 ```
