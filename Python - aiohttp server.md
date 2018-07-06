@@ -176,3 +176,9 @@ async def store_mp3_handler(request):
             f.write(chunk)
     return web.Response(text='{} sized of {} successfully stored'.format(filename, size))
 ```
+
+
+Proxy
+-----
+
+How to resend request to another server: [frontend_proxy.py](https://github.com/messa/pyladies-courseware/blob/0cfba019f7f277c8bfe8adc850a88d3b1968b648/backend/cw_backend/views/frontend_proxy.py)
