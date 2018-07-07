@@ -47,13 +47,24 @@ Function `run_app` is a utility function for running an application, serving it 
 
 ```python
 async def handle(request):
-    raise web.HTTPFound('/destination')
+    raise web.HTTPInternalServerError('/destination')
 
 # Signature: HTTPFound(location, *, headers=None, reason=None,
 #                      body=None, text=None, content_type=None)
 ```
 
 Documentation: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#redirects
+
+
+### How to return error response
+
+```python
+async def handle(request):
+    raise web.HTTPFound('/destination')
+
+# Signature: HTTPInternalServerError(*, headers=None, reason=None,
+#                                    body=None, text=None, content_type=None)
+```
 
 HTTP Exception hierarchy chart: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#exceptions
 
