@@ -49,6 +49,8 @@ You know, you can create more than one network interface in your VM settings :)
 
 **Just add second interface - Host-only**.
 
+<img alt='screenshot' src='https://s3-eu-west-1.amazonaws.com/messa-shared-files/2018/07/virtualbox_hostonly_second_interface.png' width='75%'>
+
 This second interface must be configured inside VM to retrieve IP address:
 
 ```
