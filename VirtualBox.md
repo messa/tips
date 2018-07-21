@@ -8,6 +8,18 @@ Network with host, other VMs and access to the internet
 
 [VirtualBox User Manual: Virtual networking](https://www.virtualbox.org/manual/ch06.html)
 
+See table 6.1 in the documentation (link above):
+
+| Mode        | VM ↔ Host | VM1 ↔ VM2 | VM → Internet | Internet → VM  |
+|-------------|-----------|-----------|---------------|-----------------|
+| Host-only   | ✅        | ✅       |               |                 |
+| Internal    |           | ✅       |               |                 |
+| Bridged     | ✅        | ✅       | ✅           | ✅              |
+| NAT         |           |           | ✅           | Port forwarding |
+| NAT Network |           | ✅       | ✅            | Port forwarding |
+
+
+
 Create VM with default network settings (which is _NAT_), install operating system...
 
 Create _NAT Network_ - you need only one, it can be shared by multiple VMs.
