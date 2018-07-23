@@ -23,7 +23,7 @@ $ sudo docker run
       -d example.com -d '*.example.com'
 ```
 
-The certificates need to be renewed - add this to `/etc/cron.d/certbot-docker`: 
+The certificates need to be renewed - add the command above to `/etc/cron.d/certbot-docker`: 
 
 ```
 0 */12 * * * root /usr/bin/docker run -t --rm --name certbot-renew -v ... -v ... -v ... certbot/dns-route53 -q renew
