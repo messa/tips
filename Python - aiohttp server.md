@@ -181,6 +181,16 @@ async def do_login(request):
 ```
 
 
+### Accessing POST JSON data
+
+If the POST data were sent as JSON instead of the "classic" form data (x-www-form-urlencoded):
+
+```python
+async def do_login(request):
+    data = await request.json()
+```
+
+
 ### File uploads
 
 ```python
