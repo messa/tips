@@ -56,6 +56,17 @@ async def handle(request):
 Documentation: https://aiohttp.readthedocs.io/en/stable/web_quickstart.html#redirects
 
 
+### How to return HTML response
+
+```python
+async def handle(request):
+    return web.Response(text=html_page, content_type='text/html')
+    
+# Signature: Response(*, body=None, status=200, reason=None, text=None,
+#                     headers=None, content_type=None, charset=None)
+```
+
+
 ### How to return error response
 
 ```python
