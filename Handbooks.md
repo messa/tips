@@ -41,3 +41,5 @@ https://github.com/chentsulin/awesome-graphql
 https://github.com/josephmisiti/awesome-machine-learning
 
 https://github.com/MaximAbramchuck/awesome-interview-questions
+
+https://github.com/joho/awesome-code-review
