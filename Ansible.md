@@ -22,7 +22,7 @@ Terminology
   - inventories can be dynamic. If the inventory file is executable, Ansible will run it and use its output as the inventory
   - you can have multiple inventories
     -  for example when you manage servers for different customers
-    
+
 
 File structure
 --------------
@@ -47,3 +47,39 @@ ansible-foobar/
 └── templates        - files processed by Jinja (variables are interpreted etc.)
     └── foobar.conf.j2
 ```
+
+Inventories and playbook layout:
+
+```
+playbook-foobar/
+├── ansible.cfg
+├── requirements.yml
+├── .imported_roles/
+├── inventories
+│   ├── development
+│   |   ├── group_vars
+│   |   │   └── all
+│   |   └── hosts
+│   ├── integration
+│   |   ├── group_vars
+│   |   │   └── all
+│   |   └── hosts
+│   └── production
+│       ├── group_vars
+│       │   └── all
+│       └── hosts    
+├── site.yml
+└── playbooks
+    ├── database.yml
+    └── stuff.yml
+```    
+
+`ansible.cfg`
+
+```
+hostfile = ./inventories/dev
+roles_path = ./.imported_roles:/some/dev/place/with/roles
+```
+
+Task-only playbooks vs. roles
+    
