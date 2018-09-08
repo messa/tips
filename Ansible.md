@@ -33,6 +33,8 @@ https://stackoverflow.com/questions/26638180/write-variable-to-a-file-in-ansible
 
 https://docs.ansible.com/ansible/latest/reference_appendices/config.html#ansible-configuration-settings-locations
 
+https://www.ansible.com/blog/how-i-switched-from-docker-compose-to-pure-ansible
+
 https://github.com/messa/pyladies-courseware/blob/deployment/deployment/playbooks/setup_nginx.yml
 
 
