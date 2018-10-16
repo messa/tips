@@ -11,6 +11,8 @@ https://remak_team.gitlab.io/team_website/
 
 https://github.com/guettli/programming-guidelines
 
+https://github.com/SalGnt/cscs – A curated list of Coding Style Conventions and Standards
+
 
 Style guides
 ------------
