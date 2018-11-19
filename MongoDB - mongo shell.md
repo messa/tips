@@ -6,11 +6,27 @@ Essential links
 
 https://docs.mongodb.com/manual/reference/mongo-shell/
 
+https://docs.mongodb.com/manual/reference/method/
+
+:point_up_2: You really should at leask look at those links
+
+
+How to install MongoDB
+----------------------
+
+macOS: `brew install mongodb` or `port install mongodb`
+
+Linux: [Install MongoDB Community Edition on Linux](https://docs.mongodb.com/manual/administration/install-on-linux/)
+
+Docker: [mongo](https://hub.docker.com/_/mongo/)
+
 
 How to run mongo shell
 ----------------------
 
-
+```shell
+$ mongo
+```
 
 
 Basic stuff
@@ -51,6 +67,37 @@ You can convert the results to JS Array:
 db.products.find().toArray().filter(doc => doc.stock < doc.min_stock)
 ```
 
+Tips
+----
+
+When you create an index, do it in the background to not disrupt other clients:
+
+```
+db.persons.createIndex({ name: 1 }, { background: true })
+```
+
+
+Replica sets
+------------
+
+Show status of replica set:
+
+```
+rs.status()
+```
+
+When you find yourself connected to a secondary but you still want to perform read operations:
+
+```
+rs.slaveOk()
+```
+
+[Replica Set Deployment Tutorials](https://docs.mongodb.com/manual/administration/replica-set-deployment/)
+
+
+.mongorc.js
+-----------
+
 
 Tweaking
 --------
@@ -66,6 +113,9 @@ Links
 -----
 
 https://testlio.com/blog/handy-tips-for-mongodb-shell-queries/
+
+http://mo.github.io/2017/01/22/mongo-db-tips-and-tricks.html
+
 
 
 
