@@ -92,3 +92,9 @@ And reload nginx:
 ```shell
 $ sudo systemctl reload nginx.service
 ```
+
+
+Links
+-----
+
+[github.com/messa/tips/Letsencrypt - Wildcard certificates.md](https://github.com/messa/tips/blob/master/Letsencrypt%20-%20Wildcard%20certificates.md)
