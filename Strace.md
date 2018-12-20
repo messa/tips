@@ -1,4 +1,4 @@
-Strace
+strace
 ======
 
 Strace tracks syscalls between user process and operating system (Linux, BSD, etc.)
