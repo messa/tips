@@ -26,4 +26,14 @@ query GetPerson {
 ```
 
 
+Sample servers
+--------------
+
+https://github.com/apollographql/starwars-server/blob/master/data/swapiSchema.js
+
+
+Links
+-----
+
+https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e
 
