@@ -61,10 +61,10 @@ Server:
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 
-const app = express();
+const app = express()
 
 app.use('/graphql', graphqlHTTP({
-  schema: MyGraphQLSchema,
+  schema: schema,
   graphiql: true
 }))
 
@@ -82,6 +82,16 @@ Sample servers
 --------------
 
 https://github.com/apollographql/starwars-server/blob/master/data/swapiSchema.js
+
+
+Client
+------
+
+Next.js:
+
+- https://github.com/zeit/next.js/tree/canary/examples/with-relay-modern
+- https://github.com/zeit/next.js/tree/canary/examples/with-relay-modern-server-express
+- https://github.com/zeit/next.js/tree/canary/examples/with-apollo
 
 
 Links
