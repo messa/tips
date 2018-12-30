@@ -87,6 +87,11 @@ Dependencies:
 $ npm install --save graphql express-graphql
 ```
 
+Server in Python
+----------------
+
+https://github.com/graphql-python/graphql-core-next
+
 
 Sample servers
 --------------
