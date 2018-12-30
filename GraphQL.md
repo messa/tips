@@ -87,10 +87,30 @@ Dependencies:
 $ npm install --save graphql express-graphql
 ```
 
-Server in Python
-----------------
+GraphQL server in Python
+------------------------
 
 https://github.com/graphql-python/graphql-core-next
+
+```python
+from graphql import GraphQLSchema, GraphQLObjectType, GraphQLField, GraphQLString)
+
+schema = GraphQLSchema(
+    query=GraphQLObjectType(
+        name='RootQueryType',
+        fields={
+            'hello': GraphQLField(
+                GraphQLString,
+                resolve=lambda obj, info: 'world')
+        }))
+
+from aiohttp_graphql import GraphQLView
+from aiohttp import web
+
+app = web.Application()
+GraphQLView.attach(app, schema=schema, graphiql=True)
+web.run_app(app)
+```
 
 
 Sample servers
