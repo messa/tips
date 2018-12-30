@@ -25,6 +25,58 @@ query GetPerson {
 }
 ```
 
+Simple server
+-------------
+
+Schema:
+
+```javascript
+import { 
+  GraphQLSchema, GraphQLObjectType, GraphQLInterfaceType, GraphQLEnumType,
+  GraphQLList, GraphQLNonNull, GraphQLString, GraphQLID
+} from 'graphql'
+
+const schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+      user: {
+        type: UserType,
+        args: {
+          id: { type: GraphQLID }
+        },
+        resolve: (root, args, context, info) => {
+          const { id } = args      // the `id` argument for this field is declared above
+          return fetchUserById(id) // hit the database
+        }
+      }
+    }
+  })
+})
+```
+
+Server:
+
+```javascript
+const express = require('express')
+const graphqlHTTP = require('express-graphql')
+
+const app = express();
+
+app.use('/graphql', graphqlHTTP({
+  schema: MyGraphQLSchema,
+  graphiql: true
+}))
+
+app.listen(4000)
+```
+
+Dependencies:
+
+```shell
+$ npm install --save graphql express-graphql
+```
+
 
 Sample servers
 --------------
