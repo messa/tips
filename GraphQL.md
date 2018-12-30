@@ -112,6 +112,12 @@ GraphQLView.attach(app, schema=schema, graphiql=True)
 web.run_app(app)
 ```
 
+Alternatives:
+
+- https://github.com/graphql-python/flask-graphql
+- https://docs.graphene-python.org/projects/django/en/latest/
+- https://github.com/graphql-python/sanic-graphql
+
 
 Example GraphQL servers
 -----------------------
