@@ -71,6 +71,16 @@ app.use('/graphql', graphqlHTTP({
 app.listen(4000)
 ```
 
+Alternatively, options can also be provided as a function (or async function) which returns this options object:
+
+```javascript
+app.use('/graphql', graphqlHTTP(async (request, response, graphQLParams) => ({
+  schema: schema,
+  rootValue: await someFunctionToGetRootValue(request),
+  graphiql: true
+})))
+```
+
 Dependencies:
 
 ```shell
