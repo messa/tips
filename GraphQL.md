@@ -93,7 +93,7 @@ GraphQL server in Python
 https://github.com/graphql-python/graphql-core-next
 
 ```python
-from graphql import GraphQLSchema, GraphQLObjectType, GraphQLField, GraphQLString)
+from graphql import GraphQLSchema, GraphQLObjectType, GraphQLField, GraphQLString
 
 schema = GraphQLSchema(
     query=GraphQLObjectType(
