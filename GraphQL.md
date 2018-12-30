@@ -113,14 +113,16 @@ web.run_app(app)
 ```
 
 
-Sample servers
---------------
+Example GraphQL servers
+-----------------------
+
+https://github.com/graphql/express-graphql/blob/master/examples/index.js
 
 https://github.com/apollographql/starwars-server/blob/master/data/swapiSchema.js
 
 
-Client
-------
+GraphQL Javascript React client
+-------------------------------
 
 Next.js:
 
