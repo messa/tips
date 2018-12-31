@@ -1,3 +1,36 @@
+Serverless
+==========
+
+https://en.wikipedia.org/wiki/Serverless_computing
+
+
+Case studies
+------------
+
 https://blog.badsectorlabs.com/how-we-built-hamiltixnet-for-less-than-1-a-month-on-aws.html
 
-https://www.jeremydaly.com/stop-calling-everything-serverless/?utm_source=DevOps%27ish&utm_campaign=c12e9e2dea-107&utm_medium=email&utm_term=0_eab566bc9f-c12e9e2dea-46016481
+
+Tools
+-----
+
+https://serverless.com/
+
+https://learn.hashicorp.com/terraform/aws/lambda-api-gateway
+
+
+Something to think about
+------------------------
+
+https://www.jeremydaly.com/stop-calling-everything-serverless/
+
+https://12factor.net/
+
+
+Services
+--------
+
+https://aws.amazon.com/serverless/
+
+https://zeit.co/now
+
+https://www.netlify.com/
