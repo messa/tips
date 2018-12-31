@@ -178,3 +178,5 @@ Links
 
 https://www.prisma.io/blog/graphql-server-basics-the-schema-ac5e2950214e
 
+https://www.prisma.io/blog/reusing-and-composing-graphql-apis-with-graphql-bindings-80a4aa37cff5/
+
