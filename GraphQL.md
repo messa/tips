@@ -87,6 +87,8 @@ Dependencies:
 $ npm install --save graphql express-graphql
 ```
 
+You can generate the client schema file `schema.graphql` ([example](https://github.com/zeit/next.js/blob/canary/examples/with-relay-modern-server-express/server/schema.graphql)) from the `GraphQLSchema` object by using [`printSchema` from `graphql/utilities`](https://graphql.org/graphql-js/utilities/#printschema).
+
 GraphQL server in Python
 ------------------------
 
