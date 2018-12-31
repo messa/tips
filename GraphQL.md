@@ -114,6 +114,15 @@ GraphQLView.attach(app, schema=schema, graphiql=True)
 web.run_app(app)
 ```
 
+If you need to create `schema.graphql` file, for example for `relay-compiler`:
+
+```python
+from graphql import print_schema
+from pathlib import Path
+
+Path('schema.graphql').write_text(print_schema(schema))
+```
+
 Alternatives:
 
 - https://github.com/graphql-python/flask-graphql
