@@ -109,6 +109,10 @@ A resolver function takes four arguments (in that order):
 3. `context`: A custom object each resolver can read from/write to
 4. `info`: contains the query AST and more execution information ([more info](https://www.prisma.io/blog/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a))
 
+Every GraphQL field has its own resolver function. If you don't define the resolver function, the default function is just to take appropriate field from the `parent` object.
+
+![GraphQL query execution process](https://cdn-images-1.medium.com/max/2880/1*2UStyS7v3NIZKl2cLsBtYA.png)
+
 
 GraphQL server in Python
 ------------------------
