@@ -89,6 +89,8 @@ $ npm install --save graphql express-graphql
 
 You can generate the client schema file `schema.graphql` ([example](https://github.com/zeit/next.js/blob/canary/examples/with-relay-modern-server-express/server/schema.graphql); `relay-compiler` needs this file) from the `GraphQLSchema` object by using [`printSchema` from `graphql/utilities`](https://graphql.org/graphql-js/utilities/#printschema). Example: [relayjs/relay-examples/todo/scripts/updateSchema.js](https://github.com/relayjs/relay-examples/blob/master/todo/scripts/updateSchema.js)
 
+https://graphql.org/graphql-js/running-an-express-graphql-server/
+
 
 The resolver function
 ---------------------
