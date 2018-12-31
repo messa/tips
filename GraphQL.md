@@ -165,6 +165,16 @@ https://github.com/graphql/express-graphql/blob/master/examples/index.js
 https://github.com/apollographql/starwars-server/blob/master/data/swapiSchema.js
 
 
+The N+1 problem: DataLoader
+---------------------------
+
+https://github.com/facebook/dataloader
+
+https://engineering.shopify.com/blogs/engineering/solving-the-n-1-problem-for-graphql-through-batching
+
+Warning: DataLoader is caching the data by default. Possible solutions: 1) diasble caching 2) create a new DataLeader(s) for each requests 3) clear the cache by calling `.clearAll()` 4) clear just a specific key: `.clear(42)`
+
+
 GraphQL Javascript React client
 -------------------------------
 
