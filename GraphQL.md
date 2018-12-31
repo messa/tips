@@ -25,8 +25,8 @@ query GetPerson {
 }
 ```
 
-Simple server
--------------
+Simple GraphQL server in Javascript
+-----------------------------------
 
 Schema:
 
@@ -114,6 +114,16 @@ A resolver function takes four arguments (in that order):
 Every GraphQL field has its own resolver function. If you don't define the resolver function, the default function is just to take appropriate field from the `parent` object.
 
 ![GraphQL query execution process](https://cdn-images-1.medium.com/max/2880/1*2UStyS7v3NIZKl2cLsBtYA.png)
+
+
+Relay-compatible GraphQL server in Javascript 
+---------------------------------------------
+
+https://facebook.github.io/relay/docs/en/graphql-server-specification.html
+
+https://github.com/graphql/graphql-relay-js
+
+See also the Relay Next.js examples linked below.
 
 
 GraphQL server in Python
