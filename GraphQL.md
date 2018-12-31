@@ -125,6 +125,8 @@ https://github.com/graphql/graphql-relay-js
 
 See also the Relay Next.js examples linked below.
 
+https://stackoverflow.com/questions/37635328/what-is-the-meaning-of-viewer-field-in-graphql
+
 
 GraphQL server in Python
 ------------------------
