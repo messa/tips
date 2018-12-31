@@ -12,8 +12,8 @@ Case studies
 https://blog.badsectorlabs.com/how-we-built-hamiltixnet-for-less-than-1-a-month-on-aws.html
 
 
-Tools
------
+Tools, libraries, frameworks
+----------------------------
 
 https://serverless.com/
 
