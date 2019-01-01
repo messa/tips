@@ -176,6 +176,8 @@ https://github.com/graphql/express-graphql/blob/master/examples/index.js
 
 https://github.com/apollographql/starwars-server/blob/master/data/swapiSchema.js
 
+https://github.com/messa/graphql-playlist
+
 
 The N+1 problem: DataLoader
 ---------------------------
