@@ -11,12 +11,14 @@ Github: https://github.com/aio-libs/aiohttp
 
 StackOverflow: https://stackoverflow.com/questions/tagged/aiohttp?sort=frequent
 
+
 Installation
 ------------
 
 ```shell
 $ pip install aiohttp cchardet aiodns
 ```
+
 
 Hello world
 -----------
@@ -42,6 +44,31 @@ Function `run_app` is a utility function for running an application, serving it 
 - source code: [aiohttp/web.py](https://github.com/aio-libs/aiohttp/blob/master/aiohttp/web.py#L375)
 - signature:
 `run_app(app, *, host=None, port=None, path=None, sock=None, shutdown_timeout=60.0, ssl_context=None, print=print, backlog=128, access_log_class=aiohttp.helpers.AccessLogger, access_log_format=aiohttp.helpers.AccessLogger.LOG_FORMAT, access_log=aiohttp.log.access_logger, handle_signals=True, reuse_address=None, reuse_port=None)`
+
+
+### How to start server from async code
+
+You may have notices that the function `run_app(app)` is synchronous.
+It manages the asyncio event loop and the whole lifecycle of your program.
+Sometimes that's not what you want – you have already running asyncio code
+(perhaps using [`asyncio.run`](https://docs.python.org/3/library/asyncio-task.html#asyncio.run))
+and just need a way how to start aiohttp server as a coroutine.
+
+```python
+async def run_app(app):
+    runner = web.AppRunner(app)
+    await runner.setup()
+    site = web.TCPSite(runner, bind_host, bind_port)
+    await site.start()
+    while True:
+        # https://github.com/aio-libs/aiohttp/blob/master/aiohttp/web.py#L347-L348 :)
+        await asyncio.sleep(3600)
+    await runner.cleanup()
+```
+
+See https://docs.aiohttp.org/en/stable/web_reference.html#running-applications
+
+Example: https://github.com/messa/h2tg/blob/master/h2tg/main.py
 
 
 ### How to make a redirect
@@ -153,6 +180,7 @@ class MyView(View):
 
 app.router.add_view('/view', MyView)
 ```
+
 
 App data
 --------
