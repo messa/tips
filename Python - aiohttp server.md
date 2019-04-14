@@ -55,7 +55,7 @@ Sometimes that's not what you want – you have already running asyncio code
 and just need a way how to start aiohttp server as a coroutine.
 
 ```python
-async def run_app(app):
+async def run_app(app, bind_host='', bind_port=8080):
     runner = web.AppRunner(app)
     await runner.setup()
     site = web.TCPSite(runner, bind_host, bind_port)
