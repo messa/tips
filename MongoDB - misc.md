@@ -18,5 +18,9 @@ MongoDB in-memory for testing
 
 [github.com/leadhub-code/instant-mongo](https://github.com/leadhub-code/instant-mongo)
 
+Rants
+-----
 
+https://www.nemil.com/mongo/2.html
 
+https://www.nemil.com/mongo/3.html
