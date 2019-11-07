@@ -52,6 +52,8 @@ INFO:__main__:Processing request done
 INFO:__main__:Done
 ```
 
+❌ You cannot see what message belongs to what request
+
 
 Explicit value passing to every funcion call
 --------------------------------------------
@@ -95,6 +97,10 @@ INFO:__main__:[foo] Processing request done
 INFO:__main__:[bar] Processing request done
 INFO:__main__:Done
 ```
+
+✅ You can see what message belongs to what request<br>
+❌ You have to pass the request name (or id or whatever) to function that does logging<br>
+❌ You have to include the request name in every log message manually 
 
 
 Use ContextVar instead of explicit passing
@@ -143,6 +149,10 @@ INFO:__main__:[foo] Processing request done
 INFO:__main__:[bar] Processing request done
 INFO:__main__:Done
 ```
+
+✅ You can see what message belongs to what request<br>
+✅ You don't have to pass the request name to further function calls<br>
+❌ You have to include the request name in every log message manually
 
 
 Use logging filter to add to log message automatically
@@ -198,3 +208,10 @@ INFO:__main__:[foo] Processing request done
 INFO:__main__:[bar] Processing request done
 INFO:__main__:Done
 ```
+
+
+✅ You can see what message belongs to what request<br>
+✅ You don't have to pass the request name to further function calls<br>
+✅ The request name is included in every log message automatically
+
+🎉🎉🎉
