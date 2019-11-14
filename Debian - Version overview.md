@@ -1,17 +1,20 @@
-
 Debian versions
 ===============
 
 Just for reference... I'm always confused which Debian version has which name :)
 
-Last updated: 2018-01-17
+Last updated: 2019-11-14
 
 - next
-    - __buster__ (_testing_)
+    - __bullseye__ (_testing_)
 - current
-    - __stretch__
+    - __buster__ (10; _stable_)
+        - Python 3.7
 - oldstable
-    - __jessie__ (8; _stable_)
+    - __stretch__ (9; _oldstable_)
+        - Python 3.5
+- old :)
+    - __jessie__ (8)
         - __8.2__ released 2015-09-05 - [CD .iso](http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/)
         - 8.1 released 2015-06-06
         - 8.0 released 2015-04-26
@@ -22,8 +25,7 @@ Last updated: 2018-01-17
               Apache 2.4.10,
               PostgreSQL 9.4.1,
               GCC 4.9.2
-- old :)
-    - __wheezy__ (7; _oldstable_)
+    - __wheezy__ (7)
         - 7.8 released 2015-01-10
         - 7.0 released 2013-05-04
             - multiarch support, UEFI
