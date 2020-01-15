@@ -215,3 +215,10 @@ INFO:__main__:Done
 ✅ The request name is included in every log message automatically
 
 🎉🎉🎉
+
+
+Aiohttp
+-------
+
+See [aiohttp-request-id-logging](https://github.com/messa/aiohttp-request-id-logging)
+
