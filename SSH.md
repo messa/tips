@@ -70,3 +70,35 @@ Read more about SSH multiplexing here:
 - [SSH ControlMaster: The Good, The Bad, The Ugly (anchor.com.au)](http://www.anchor.com.au/blog/2010/02/ssh-controlmaster-the-good-the-bad-the-ugly/)
 
 
+autossh
+-------
+
+> autossh is a program to start a copy of ssh and monitor it, restarting
+> it as necessary should it die or stop passing traffic.
+
+Homepage: https://www.harding.motd.ca/autossh/
+
+Example:
+
+```shell
+#!/bin/bash
+
+host=example.com
+remote_port=2022
+monitoring_port=$(( $remote_port + 10000 ))
+remote_iface=127.0.0.1
+
+exec autossh -M $monitoring_port -C -N -R $remote_port:$remote_iface:22 $host
+```
+
+This script executes `autossh` wrapper that:
+
+- uses ports 12022 and 12023 for monitoring
+- executes `ssh` with additional `-R` and `-L` parameters to create (additional) tunnel for ports 12022 and 12023
+
+```
+$ ps ax | grep ssh
+24617 pts/6    Ss+    0:00 /usr/lib/autossh/autossh -M 12022 -C -v -N -R 2022:127.0.0.1:22 example.com
+24620 pts/6    S+     0:00 /usr/bin/ssh -L 12022:127.0.0.1:12022 -R 12022:127.0.0.1:12023 -C -v -N -R 2022:127.0.0.1:22 example.com
+```
+
