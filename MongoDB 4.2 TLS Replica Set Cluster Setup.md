@@ -1,6 +1,7 @@
 MongoDB 4.2 TLS Replica Set Cluster Setup
 =========================================
 
+
 Step 1. Prepare VMs
 -------------------
 
@@ -57,6 +58,8 @@ Step 3. Setup the VMs, install MongoDB
 
 🔎 For more info how to install MongoDB on Debian: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
+I recommend to prepare an empty working directory for this and further steps.
+
 👉 Save this script as a file `setup01.sh`:
 
 ```shell
@@ -65,7 +68,7 @@ set -ex
 for hn in $hostnames; do
    ssh root@$hn apt-get update
    ssh root@$hn apt-get upgrade
-   ssh root@$hn apt-get install -y --no-install-recommends gnupg2 vim
+   ssh root@$hn apt-get install -y --no-install-recommends gnupg2 vim rsync
 
    curl -sS https://www.mongodb.org/static/pgp/server-4.2.asc | \
      ssh root@$hn apt-key add -
@@ -95,5 +98,24 @@ But **you should not use Let's Encrypt certificates for MongoDB cluster authenti
 I suppose you do not want that.
 So we are going to create **our own CA** (certificate authority) that we will use for MongoDB cluster member authentication and for encryption of their communication.
 
+TODO: Makefile etc.
 
+
+Step 5. Prepare MongoDB configuration file `mongod.conf`
+--------------------------------------------------------
+
+
+
+
+```
+demo-rs:PRIMARY> use admin
+switched to db admin
+demo-rs:PRIMARY> db.createUser({ user: 'root', pwd: 'topsecret', roles: ['root'] })
+```
+
+
+```
+demo-rs:PRIMARY> rs.add('test02.example.com:27017')
+demo-rs:PRIMARY> rs.add('test03.example.com:27017')
+```
 
