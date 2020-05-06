@@ -55,9 +55,9 @@ resource "aws_route53_record" "A_w-test03_example_com" {
 Step 3. Setup the VMs, install MongoDB
 --------------------------------------
 
-For more info how to install MongoDB on Debian: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+🔎 For more info how to install MongoDB on Debian: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
-Save this script as a file `setup01.sh`.
+👉 Save this script as a file `setup01.sh`:
 
 ```shell
 #!/bin/bash
@@ -78,9 +78,22 @@ for hn in $hostnames; do
 done
 ```
 
-Run it this way:
+👉 Run it this way:
 
 ```shell
 $ hostnames="test01.example.com test02.example.com test03.example.com" bash setup01.sh
 ```
+
+
+Step 4. Prepare SSL certificates for the MongoDB cluster
+--------------------------------------------------------
+
+🔎 MongoDB docs: [Use x.509 Certificate for Membership Authentication](https://docs.mongodb.com/manual/tutorial/configure-x509-member-authentication/)
+
+‼️ You can get a TLS ("SSL") certificate for free from [Let's Encrypt](https://letsencrypt.org/).
+But **you should not use Let's Encrypt certificates for MongoDB cluster authentication** – because anybody, who can also use the same CA and obtain certificate with the same DN fields, which in case of Let's Encrypt is *everybody*, can join your cluster and replicate all your data.
+I suppose you do not want that.
+So we are going to create **our own CA** (certificate authority) that we will use for MongoDB cluster member authentication and for encryption of their communication.
+
+
 
