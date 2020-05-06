@@ -98,14 +98,134 @@ But **you should not use Let's Encrypt certificates for MongoDB cluster authenti
 I suppose you do not want that.
 So we are going to create **our own CA** (certificate authority) that we will use for MongoDB cluster member authentication and for encryption of their communication.
 
-TODO: Makefile etc.
+Save this into a file named `Makefile`:
+
+```
+all: myCA.cert
+
+myCA.key:
+	# private key
+	openssl genrsa -out $@ 4096
+	# show info
+	openssl rsa -in $@ -noout -text
+
+myCA.cert: myCA.key
+	# root certificate
+	openssl req -x509 -new -nodes \
+		-subj "/O=ACME/OU=IT/CN=ACME CA" \
+		-key myCA.key \
+		-sha256 -days 3650 -out $@
+	# show info
+	openssl x509 -in $@ -text -noout
+
+mongod-%.key:
+	openssl genrsa -out $@ 4096
+
+mongod-%.csr: mongod-%.key
+	openssl req -new -key $< -out $@ \
+		-subj "/O=ACME/OU=IT/DC=MongoDB demo-rs/CN=$*"
+	# show info
+	openssl req -in $@ -text -noout
+
+mongod-%.ext:
+	rm -f $@
+	echo "basicConstraints=CA:FALSE" >> $@
+	echo "authorityKeyIdentifier=keyid,issuer" >> $@
+	echo "nsCertType=client, server" >> $@
+	echo "keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment" >> $@
+	echo "extendedKeyUsage = clientAuth, serverAuth" >> $@
+
+mongod-%.cert: mongod-%.csr mongod-%.ext myCA.cert
+	openssl x509 -req -in mongod-$*.csr -out $@ \
+		-CA myCA.cert -CAkey myCA.key -CAcreateserial \
+		-days 3650 -sha256 -extfile mongod-$*.ext
+	# show info
+	openssl x509 -in $@ -text -noout
+	# verify
+	openssl verify -CAfile myCA.cert $@
+
+.PHONY: all
+
+.SECONDARY:
+```
+
+Run it:
+
+```
+make 
+make mongod-test01.example.com.cert
+make mongod-test02.example.com.cert
+make mongod-test03.example.com.cert
+```
 
 
 Step 5. Prepare MongoDB configuration file `mongod.conf`
 --------------------------------------------------------
 
+👉 Save this script as file `setup02.sh`:
+
+```
+#!/bin/bash
+set -ex
+for hn in $hostnames; do
+  ssh root@$hn mkdir -p /srv/mongodb/{data,conf,log}
+  ssh root@$hn tee /srv/mongodb/conf/mongod.conf <<EOD
+storage:
+  dbPath: /srv/mongodb/data
+  journal:
+    enabled: true
+  engine: wiredTiger
+  wiredTiger:
+    engineConfig:
+      cacheSizeGB: 1
+systemLog:
+  destination: file
+  logAppend: true
+  path: /srv/mongodb/log/mongod.log
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+  tls:
+    mode: preferTLS
+    allowConnectionsWithoutCertificates: true
+    CAFile: /srv/mongodb/conf/myCA.cert
+    certificateKeyFile: /srv/mongodb/conf/mongod-$hn.cert-key
+processManagement:
+  timeZoneInfo: /usr/share/zoneinfo
+  fork: false
+security:
+  clusterAuthMode: x509
+  authorization: enabled
+  javascriptEnabled: false
+replication:
+  replSetName: demo-rs
+EOD
+  cat myCA.cert | ssh root@$hn tee /srv/mongodb/conf/myCA.cert
+  cat mongod-$hn.cert mongod-$hn.key | ssh root@$hn tee /srv/mongodb/conf/mongod-$hn.cert-key
+done
+```
+
+👉 Run it this way:
+
+```shell
+$ hostnames="test01.example.com test02.example.com test03.example.com" bash setup01.sh
+```
 
 
+Step 6. Start first `mongod` and initiate replica set
+-----------------------------------------------------
+
+Connect to test01.example.com via SSH and execute:
+
+```
+mongod --config /srv/mongodb/conf/mongod.conf
+```
+
+There should be no output, because all output goes to the log file `/srv/mongodb/log/mongod.log`.
+
+
+Step 7. Create superuser
+------------------------
 
 ```
 demo-rs:PRIMARY> use admin
@@ -114,8 +234,10 @@ demo-rs:PRIMARY> db.createUser({ user: 'root', pwd: 'topsecret', roles: ['root']
 ```
 
 
+Step 8. Add other `mongod` instances to the replica set
+-------------------------------------------------------
+
 ```
 demo-rs:PRIMARY> rs.add('test02.example.com:27017')
 demo-rs:PRIMARY> rs.add('test03.example.com:27017')
 ```
-
