@@ -57,7 +57,7 @@ Step 3. Setup the VMs, install MongoDB
 
 For more info how to install MongoDB on Debian: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
 
-Save this script as a file `setup.sh`.
+Save this script as a file `setup01.sh`.
 
 ```shell
 #!/bin/bash
@@ -65,13 +65,22 @@ set -ex
 for hn in $hostnames; do
    ssh root@$hn apt-get update
    ssh root@$hn apt-get upgrade
-   
+   ssh root@$hn apt-get install -y --no-install-recommends gnupg2 vim
+
+   curl -sS https://www.mongodb.org/static/pgp/server-4.2.asc | \
+     ssh root@$hn apt-key add -
+
+   echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | \
+     ssh root@$hn tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+
+   ssh root@$hn apt-get update
+   ssh root@$hn apt-get install mongodb-org-server mongodb-org-shell mongodb-org-tools
 done
 ```
 
 Run it this way:
 
 ```shell
-$ hostnames="test01.example.com test02.example.com test03.example.com" bash setup.sh
+$ hostnames="test01.example.com test02.example.com test03.example.com" bash setup01.sh
 ```
 
