@@ -208,7 +208,7 @@ done
 👉 Run it this way:
 
 ```shell
-$ hostnames="test01.example.com test02.example.com test03.example.com" bash setup01.sh
+$ hostnames="test01.example.com test02.example.com test03.example.com" bash setup02.sh
 ```
 
 
