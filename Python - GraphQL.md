@@ -1,13 +1,28 @@
 Python and GraphQL
 ==================
 
-https://github.com/strawberry-graphql/strawberry
+Graphene
+--------
+
+https://graphene-python.org/
+
+
+Tartiflette
+-----------
 
 https://tartiflette.io/
 
+
+Ariadne
+-------
+
 https://ariadnegraphql.org/
 
-https://graphene-python.org/
+
+Strawberry
+----------
+
+https://github.com/strawberry-graphql/strawberry
 
 
 
