@@ -6,7 +6,45 @@ Graphene
 
 https://graphene-python.org/
 
+```python
+#!/usr/bin/env python3
 
+'''
+https://blog.graphqleditor.com/top-3-python-libraries-for-graphql/
+'''
+
+from aiohttp.web import run_app, Application
+#from aiohttp_graphql import GraphQLView
+from graphql_server.aiohttp import GraphQLView
+import graphene
+
+
+class Query(graphene.ObjectType):
+    hello = graphene.String(description='A typical hello world')
+
+    def resolve_hello(self, info):
+        return 'World'
+
+schema = graphene.Schema(query=Query)
+
+
+def main():
+    setup_logging()
+    app = Application()
+    print(type(schema))
+    GraphQLView.attach(app, schema=schema, graphiql=True)
+    run_app(app)
+
+
+
+def setup_logging():
+    from logging import DEBUG, basicConfig
+    basicConfig(level=DEBUG)
+
+
+if __name__ == '__main__':
+    main()
+```
 
 
 Tartiflette
