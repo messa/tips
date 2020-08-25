@@ -9,3 +9,6 @@ Python asyncio libraries
 
 [quart](https://pgjones.gitlab.io/quart/)
 
+[FastAPI](https://fastapi.tiangolo.com/)
+
+[Connexion](https://github.com/zalando/connexion)
