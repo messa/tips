@@ -8,3 +8,7 @@ Interesting videos about software development
 [Functional Design Patterns - Scott Wlaschin, NDC Sydney 2017](https://www.youtube.com/watch?v=srQt1NAHYC0)
 
 [Shopify's Architecture to handle 80K RPS Celebrity Sales - Simon Eskildsen, GOTO 2017](https://www.youtube.com/watch?v=N8NWDHgWA28)
+
+https://www.reddit.com/r/ExperiencedDevs/comments/k9br70/favorite_conference_talks/
+
+https://pyvec.slack.com/archives/C483PA49F/p1607689205074100
