@@ -257,27 +257,6 @@ async def store_mp3_handler(request):
 ```
 
 
-Things you should know about: cancellation
-------------------------------------------
-
-Documentation: https://aiohttp.readthedocs.io/en/stable/web_advanced.html#web-handler-cancellation
-
-> **Warning**:
-> web-handler execution could be **canceled on every await if client drops connection** without reading entire response’s BODY.
-> The behavior is very different from classic WSGI frameworks like Flask and Django.
-
-To prevent cancellation of the whole web-handler use @atomic decorator:
-
-```python
-from aiojobs.aiohttp import atomic
-
-@atomic
-async def handler(request):
-    await write_to_db()
-    return web.Response()
-```
-
-
 How to make a proxy
 -------------------
 
