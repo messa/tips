@@ -79,6 +79,39 @@ Usually I generate this file when creating new project on Github. You may also l
 - https://opensource.org/licenses
 
 
+### 📃 example_pkg/__init__.py
+
+The `_VersionInfo` stuff inspired by [bandersnatch/__init__.py](https://github.com/pypa/bandersnatch/blob/master/src/bandersnatch/__init__.py).
+
+```python
+from typing import NamedTuple
+
+
+class _VersionInfo (NamedTuple):
+    major: int
+    minor: int
+    micro: int
+    releaselevel: str
+    serial: int
+
+    @property
+    def version_str(self) -> str:
+        release_level = f".{self.releaselevel}" if self.releaselevel else ""
+        return f"{self.major}.{self.minor}.{self.micro}{release_level}"
+
+
+__version_info__ = _VersionInfo(
+    major=4,
+    minor=4,
+    micro=0,
+    releaselevel="",
+    serial=0,
+)
+__version__ = __version_info__.version_str
+```
+
+
+
 Packaging binary extensions
 ---------------------------
 
@@ -91,4 +124,6 @@ Links
 -----
 
 https://github.com/mongodb/mongo-python-driver/blob/master/RELEASE.rst
+
+https://stackoverflow.com/questions/458550/standard-way-to-embed-version-into-python-package
 
