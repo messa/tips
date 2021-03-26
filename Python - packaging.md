@@ -18,7 +18,7 @@ packaging_tutorial/
 └── tests/
 ```
 
-pyproject.toml
+### pyproject.toml
 
 ```
 [build-system]
@@ -29,7 +29,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 ```
 
-setup.cfg
+### setup.cfg
 
 ```
 [metadata]
@@ -50,16 +50,16 @@ classifiers =
     Operating System :: OS Independent
 
 [options]
-package_dir =
-    = src
 packages = find:
 python_requires = >=3.6
-
+install_requires =
+    requests
+    
 [options.packages.find]
 where = src
 ```
 
-setup.py
+### setup.py
 
 ```
 import setuptools
@@ -67,7 +67,9 @@ import setuptools
 setuptools.setup()
 ```
 
-LICENSE – usually I generate this file when creating new project on Github. You may also look here:
+### LICENSE
+
+Usually I generate this file when creating new project on Github. You may also look here:
 
 - https://choosealicense.com/
 - https://opensource.org/licenses
