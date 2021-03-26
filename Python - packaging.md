@@ -18,7 +18,7 @@ packaging_tutorial/
 └── tests/
 ```
 
-### pyproject.toml
+### 📃 pyproject.toml
 
 ```
 [build-system]
@@ -29,7 +29,7 @@ requires = [
 build-backend = "setuptools.build_meta"
 ```
 
-### setup.cfg
+### 📃 setup.cfg
 
 ```
 [metadata]
@@ -56,7 +56,7 @@ install_requires =
     requests
 ```
 
-### setup.py
+### 📃 setup.py
 
 ```
 import setuptools
@@ -64,7 +64,7 @@ import setuptools
 setuptools.setup()
 ```
 
-### LICENSE
+### 📃 LICENSE
 
 Usually I generate this file when creating new project on Github. You may also look here:
 
