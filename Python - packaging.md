@@ -20,7 +20,7 @@ packaging_tutorial/
 
 ### 📃 pyproject.toml
 
-```
+```toml
 [build-system]
 requires = [
     "setuptools>=42",
@@ -31,10 +31,9 @@ build-backend = "setuptools.build_meta"
 
 ### 📃 setup.cfg
 
-```
+```ini
 [metadata]
-# replace with your username:
-name = example-pkg-YOUR-USERNAME-HERE
+name = example-pkg
 version = 0.0.1
 author = Example Author
 author_email = author@example.com
@@ -58,7 +57,7 @@ install_requires =
 
 ### 📃 setup.py
 
-```
+```python
 import setuptools
 
 setuptools.setup()
