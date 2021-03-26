@@ -53,6 +53,14 @@ packages = find:
 python_requires = >=3.6
 install_requires =
     requests
+    
+[options.entry_points]
+console_scripts =
+    hello = example_pkg:main
+
+[options.extras_require]
+test =
+    pytest
 ```
 
 ### 📃 setup.py
