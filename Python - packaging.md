@@ -74,3 +74,10 @@ Packaging binary extensions
 https://packaging.python.org/guides/packaging-binary-extensions/
 
 Example in my own project: https://github.com/messa/bloom/blob/main/setup.py
+
+
+Links
+-----
+
+https://github.com/mongodb/mongo-python-driver/blob/master/RELEASE.rst
+
