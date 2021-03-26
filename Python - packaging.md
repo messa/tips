@@ -1,7 +1,7 @@
 Python packaging & project workflow
 ===================================
 
-Packaging Python Projects
+Packaging Python projects
 -------------------------
 
 Tutorial: https://packaging.python.org/tutorials/packaging-projects/
@@ -68,6 +68,9 @@ setuptools.setup()
 ```
 
 
+Packaging binary extensions
+---------------------------
 
+https://packaging.python.org/guides/packaging-binary-extensions/
 
-
+Example in my own project: https://github.com/messa/bloom/blob/main/setup.py
