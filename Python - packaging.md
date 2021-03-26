@@ -67,6 +67,11 @@ import setuptools
 setuptools.setup()
 ```
 
+LICENSE – usually I generate this file when creating new project on Github. You may also look here:
+
+- https://choosealicense.com/
+- https://opensource.org/licenses
+
 
 Packaging binary extensions
 ---------------------------
