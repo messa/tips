@@ -54,9 +54,6 @@ packages = find:
 python_requires = >=3.6
 install_requires =
     requests
-    
-[options.packages.find]
-where = src
 ```
 
 ### setup.py
