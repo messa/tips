@@ -42,3 +42,9 @@ https://aws.amazon.com/serverless/
 https://zeit.co/now
 
 https://www.netlify.com/
+
+
+Databases as a Service
+----------------------
+
+https://upstash.com/
