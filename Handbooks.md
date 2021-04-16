@@ -13,6 +13,8 @@ https://github.com/guettli/programming-guidelines
 
 https://github.com/SalGnt/cscs – A curated list of Coding Style Conventions and Standards
 
+https://about.gitlab.com/handbook/people-group/general-onboarding/
+
 
 Style guides
 ------------
