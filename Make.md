@@ -19,3 +19,6 @@ TODO: add descriptions and examples
 
 http://www.oreilly.com/openbook/make3/book/ch02.pdf
 
+https://ondras.zarovi.cz/slides/2018/praguejs-make/
+
+https://ondras.zarovi.cz/slides/2020/devstack-frontendisti/
