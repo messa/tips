@@ -3,18 +3,29 @@ Debian versions
 
 Just for reference... I'm always confused which Debian version has which name :)
 
-Last updated: 2019-11-14
+Last updated: 2021-08-23
+
 
 - next
-    - __bullseye__ (_testing_)
+    - __bookworm__ (12; _testing_)
 - current
-    - __buster__ (10; _stable_)
-        - Python 3.7
+    - __bullseye__ (11; _stable_)
+        - __11.0__ released 2021-08-14
+            - Linux 5.10
+            - Python 3.9
 - oldstable
-    - __stretch__ (9; _oldstable_)
-        - Python 3.5
-- old :)
+    - __buster__ (10; _oldstable_)
+        - [LTS support](https://wiki.debian.org/LTS): July, 2022 to June, 2024
+        - 10.0 released 2019-07-06
+            - Python 3.7
+- after End of life, LTS only
+    - __stretch__ (9)
+        - [LTS support](https://wiki.debian.org/LTS): July 6, 2020 to June 30, 2022
+        - 9.0 released 2017-06-17
+            - Python 3.5
+- after LTS End of life
     - __jessie__ (8)
+        - [LTS support](https://wiki.debian.org/LTS): ended on June 30, 2020
         - __8.2__ released 2015-09-05 - [CD .iso](http://cdimage.debian.org/debian-cd/8.2.0/amd64/iso-cd/)
         - 8.1 released 2015-06-06
         - 8.0 released 2015-04-26
