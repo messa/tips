@@ -6,9 +6,9 @@ Debian Notes
 First login
 -----------
 
-`sudo aptitude update` :)
+`sudo apt update` :)
 
-Install basic packages - these are my favorite: `sudo aptitude install apt-file bind9-host colordiff dnsutils dstat git htop iotop less mlocate nginx ntp openssl python python3 python3-venv rsync screen strace sudo tree vim`
+Install basic packages - these are my favorite: `sudo apt install apt-file bind9-host colordiff dnsutils dstat git htop iotop less mlocate nginx ntp openssl python python3 python3-venv rsync screen strace sudo tree vim`
 
 
 Hostname
@@ -50,3 +50,13 @@ If you want to have a "local domain", for example _.ldev_, so _anything.ldev_ re
         name = *.ldev;
         a = 127.0.0.1;
     }
+
+
+/tmp on tmpfs
+-------------
+
+```shell
+$ cd /etc/systemd/system
+$ sudo ln  -s /usr/share/systemd/tmp.mount .
+$ sudo systemctl enable tmp.mount
+```
