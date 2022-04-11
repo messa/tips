@@ -56,6 +56,12 @@ If you want to have a "local domain", for example _.ldev_, so _anything.ldev_ re
 -------------
 
 ```shell
+echo 'tmpfs /tmp tmpfs noatime,nosuid,nodev,noexec,mode=1777 0 0' | sudo tee -a /etc/fstab
+```
+
+Alternative solution – I'm not sure whether it works on newest Debian versions:
+
+```shell
 $ cd /etc/systemd/system
 $ sudo ln  -s /usr/share/systemd/tmp.mount .
 $ sudo systemctl enable tmp.mount
